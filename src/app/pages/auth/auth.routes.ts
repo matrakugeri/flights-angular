@@ -1,6 +1,6 @@
-import { Route } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const AUTH_ROUTES: Route[] = [
+const AUTH_ROUTES: Routes = [
   {
     path: 'login',
     loadComponent: () =>
