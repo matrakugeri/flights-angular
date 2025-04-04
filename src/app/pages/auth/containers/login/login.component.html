@@ -1,2 +1,49 @@
-<p>login works!</p>
-<p>x</p>
+<section class="center">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <h2>Welcome to the Flights Application!</h2>
+    <div class="flex">
+      <div class="flex2">
+        <label [class.valid]="form.controls.email.valid" for="email"
+          >Email</label
+        >
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <div class="flex2">
+        <label [class.valid]="form.controls.password.valid" for="password"
+          >Password</label
+        >
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+    </div>
+    @if(emailIsTrue){
+    <p class="control-error">Please enter a valid address</p>
+    } @if(passIsTrue){
+    <p class="control-error">
+      Password must contain 6 letters and a special character
+    </p>
+    }
+    <div class="button-container">
+      <button
+        class="btn"
+        type="submit"
+        [disabled]="form.invalid"
+        [class.not-allowed]="form.invalid"
+      >
+        {{ isLoginMode() ? "Login" : "Sign Up" }}
+      </button>
+      <button class="btn" type="button" (click)="onClick()">
+        Switch to {{ isLoginMode() ? "Sign Up" : "Login" }}
+      </button>
+    </div>
+  </form>
+</section>

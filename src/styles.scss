@@ -13,4 +13,37 @@ html {
 body {
   font-family: sans-serif;
   box-sizing: border-box;
+  height: 100vh;
+}
+
+.btn {
+  padding: 1.2rem 1.6rem;
+  border: none;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: #abc32f;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #fff;
+    color: #abc32f;
+    border: 1px solid #abc32f;
+  }
+}
+
+.control-error {
+  font-size: 1.5rem;
+  color: red;
+  margin-bottom: 1.2rem;
+}
+
+.valid {
+  color: blue;
+}
+
+.not-allowed {
+  cursor: not-allowed;
 }
