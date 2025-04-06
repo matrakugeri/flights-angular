@@ -918,6 +918,16 @@
       "id": 1743938438459,
       "email": "myuser2@gmail.com",
       "password": "$2b$10$s4Jpjxdy5MudI00Dl4m8P.dTAp81OQeBpPjeTpbO6dI91Icw1SbfS"
+    },
+    {
+      "id": 1743970188407,
+      "email": "example@gmail.com",
+      "password": "$2b$10$7HiXp0oXfOXbeim.SvRONOFucwsqKDfD7HXvAmnQKhJ5FmmoaQVO6"
+    },
+    {
+      "id": 1743971331764,
+      "email": "myuse32r@gmail.com",
+      "password": "$2b$10$63zTRtn.dr8g.4JDUPDhC.A3kbtlvqV.QvjgGJy44uq3Ts23NEZF."
     }
   ]
 }

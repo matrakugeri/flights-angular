@@ -1,9 +1,9 @@
 export interface User {
   token: string;
-  user: User2;
+  user: UserDetails;
 }
 
-export interface User2 {
+export interface UserDetails {
   email: string;
   id: number;
 }

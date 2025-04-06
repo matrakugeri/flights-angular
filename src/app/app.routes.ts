@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guards';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'flights',
+        canActivate: [authGuard],
         loadChildren: () =>
           import('./pages/flights/flights.routes').then((m) => m.FLIGHT_ROUTES),
       },

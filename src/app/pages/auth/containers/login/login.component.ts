@@ -7,24 +7,25 @@ import {
 } from '@angular/forms';
 import { containsValidChar } from '../../../../utils/validators';
 import { AuthService } from '../../services/auth.service';
-import { catchError } from 'rxjs';
+import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, SpinnerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   isLoginMode = signal<boolean>(false);
   authService = inject(AuthService);
+  isLoading = signal<boolean>(false);
 
   form = new FormGroup({
-    email: new FormControl('', {
+    email: new FormControl('myuser@gmail.com', {
       validators: [Validators.required, Validators.email],
     }),
-    password: new FormControl('', {
+    password: new FormControl('myuser!', {
       validators: [
         Validators.required,
         Validators.minLength(7),
@@ -38,14 +39,21 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    this.isLoading.set(true);
     if (this.isLoginMode()) {
       this.authService
         .login(this.form.value.email!, this.form.value.password!)
-        .subscribe();
+        .subscribe({
+          next: () => this.isLoading.set(false),
+          error: () => this.isLoading.set(false),
+        });
     } else {
       this.authService
         .register(this.form.value.email!, this.form.value.password!)
-        .subscribe();
+        .subscribe({
+          next: () => this.isLoading.set(false),
+          error: () => this.isLoading.set(false),
+        });
     }
 
     this.form.reset();

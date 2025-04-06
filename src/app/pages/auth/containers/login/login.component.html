@@ -1,3 +1,6 @@
+@if(isLoading()){
+<loading-spinner></loading-spinner>
+}
 <section class="center">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <h2>Welcome to the Flights Application!</h2>

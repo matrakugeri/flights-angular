@@ -48,3 +48,22 @@ body {
   cursor: not-allowed;
   opacity: 70%;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.centered-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  font-size: 1.3rem !important;
+}
