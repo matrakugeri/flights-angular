@@ -33,15 +33,6 @@ export class LoginComponent {
     }),
   });
 
-  get emailIsTrue() {
-    return this.form.controls.email.touched && this.form.controls.email.invalid;
-  }
-  get passIsTrue() {
-    return (
-      this.form.controls.password.touched && this.form.controls.password.invalid
-    );
-  }
-
   onClick() {
     this.isLoginMode.set(!this.isLoginMode());
   }
@@ -50,18 +41,12 @@ export class LoginComponent {
     if (this.isLoginMode()) {
       this.authService
         .login(this.form.value.email!, this.form.value.password!)
-        .subscribe({
-          next: (res) => {
-            // navigate by url
-            // isloading
-            // snackbar
-          },
-          error: (error) => console.error(error),
-        });
+        .subscribe();
+    } else {
+      this.authService
+        .register(this.form.value.email!, this.form.value.password!)
+        .subscribe();
     }
-    this.authService
-      .register(this.form.value.email!, this.form.value.password!)
-      .subscribe();
 
     this.form.reset();
   }

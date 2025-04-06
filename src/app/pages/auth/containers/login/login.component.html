@@ -25,9 +25,11 @@
         />
       </div>
     </div>
-    @if(emailIsTrue){
+    @if(this.form.controls.email.touched && this.form.controls.email.invalid &&
+    this.form.controls.email.dirty){
     <p class="control-error">Please enter a valid address</p>
-    } @if(passIsTrue){
+    } @if(this.form.controls.password.touched &&
+    this.form.controls.password.invalid && this.form.controls.password.dirty){
     <p class="control-error">
       Password must contain 6 letters and a special character
     </p>
