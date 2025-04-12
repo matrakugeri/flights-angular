@@ -1,22 +1,16 @@
-import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { AuthStore } from '../../../core/auth.store';
-import { inject } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RouterOutlet } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavigationComponent, HeaderComponent, MatIconModule],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
 })
 export class MainLayoutComponent {
-  authStore = inject(AuthStore);
-  router = inject(Router);
-
-  onLogout() {
-    this.authStore.setState({ token: null, user: null });
-    localStorage.clear();
-    this.router.navigate(['/login']);
-  }
+  isOpen = signal<boolean>(true);
 }

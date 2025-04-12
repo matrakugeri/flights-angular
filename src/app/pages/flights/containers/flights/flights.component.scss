@@ -1,0 +1,17 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ticket-anchor {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}

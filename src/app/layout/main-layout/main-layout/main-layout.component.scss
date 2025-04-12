@@ -1,0 +1,43 @@
+@import "variables";
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: $secondary-layout-color;
+}
+
+.outlet-container {
+  background-color: $secondary-layout-color;
+  padding: 5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.search-container {
+  display: grid;
+  justify-items: center;
+  padding: 2rem 0;
+  background-color: $white;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  row-gap: 2rem;
+  margin-bottom: 4rem;
+  border-radius: 11px;
+  border: 2px solid $rose-border;
+
+  input {
+    width: 25rem;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 2px solid darken($rose-border, 10);
+
+    &::placeholder {
+      color: black;
+    }
+  }
+}
+
+.form-btn {
+  width: 25rem;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,44 @@
+@import "variables";
+
+.navigation {
+  background-color: $sidebar-color;
+  max-height: 100%;
+  height: 100%;
+  width: 280px;
+  max-width: 280px;
+  padding-top: 2rem;
+  box-shadow: 3px 0px 3rem rgba(0, 0, 0, 0.3);
+}
+
+.navigation-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.navigation-list-item a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 4rem 1rem 1.5rem;
+  transition: all 0.4s ease;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: $white;
+}
+.navigation-list-item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.icon {
+  background-color: $icon-bg;
+  padding: 0.8rem;
+  color: $light-blue;
+  border-radius: 6px;
+  box-shadow: 2px 3px 2rem rgba(0, 0, 0, 0.3);
+}
+
+.navigation-list li a:hover:not(.active) {
+  background-color: lighten($color: $sidebar-color, $amount: 5);
+}

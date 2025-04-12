@@ -1,3 +1,5 @@
+@import "variables";
+
 *,
 ::after,
 ::before {
@@ -11,7 +13,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
   box-sizing: border-box;
   height: 100vh;
 }
@@ -21,16 +23,17 @@ body {
   border: none;
   color: #fff;
   border: 1px solid #fff;
-  background-color: #abc32f;
+  background-color: $button-bg;
   font-size: 1.3rem;
+  border-radius: 6px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s;
 
   &:hover:not(:disabled) {
     background-color: #fff;
-    color: #abc32f;
-    border: 1px solid #abc32f;
+    color: $button-bg;
+    border: 1px solid $button-bg;
   }
 }
 
@@ -49,15 +52,6 @@ body {
   opacity: 70%;
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 .centered-spinner {
   display: flex;
   justify-content: center;
@@ -66,4 +60,8 @@ body {
 
 .mat-mdc-snack-bar-container .mdc-snackbar__label {
   font-size: 1.3rem !important;
+}
+
+.active {
+  background-color: #aaa;
 }

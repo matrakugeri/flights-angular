@@ -17,7 +17,7 @@ import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  isLoginMode = signal<boolean>(false);
+  isLoginMode = signal<boolean>(true);
   authService = inject(AuthService);
   isLoading = signal<boolean>(false);
 

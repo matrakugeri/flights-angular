@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthStore } from './core/auth.store';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  host: {
+    class: 'full',
+  },
 })
-export class AppComponent {
-  title = 'flights-angular';
+export class AppComponent implements OnInit {
+  authStore = inject(AuthStore);
+
+  ngOnInit(): void {
+    const user = localStorage.getItem('user');
+    if (user) {
+      const gotUser = JSON.parse(user);
+      this.authStore.setToken(gotUser.token);
+    }
+  }
 }

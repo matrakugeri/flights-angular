@@ -1,0 +1,17 @@
+<div
+  class="navigation"
+  [@expandCollapse]="isExpanded() ? 'expanded' : 'collapsed'"
+>
+  <ul class="navigation-list">
+    <li class="navigation-list-item">
+      <a routerLinkActive="" [routerLink]="['/flights']"
+        ><i class="material-icons icon">dashboard</i>Dashboard</a
+      >
+    </li>
+    <li class="navigation-list-item">
+      <a [routerLink]="['/login']"
+        ><i class="material-icons icon">flight_takeoff</i> Flights</a
+      >
+    </li>
+  </ul>
+</div>

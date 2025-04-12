@@ -5,4 +5,8 @@ export const FLIGHT_ROUTES: Routes = [
     path: '',
     loadComponent: () => import('./containers/flights/flights.component'),
   },
+  // {
+  //   path:':id',
+  //   loadComponent:()=>import()
+  // }
 ];

@@ -1,0 +1,29 @@
+@import "variables";
+
+.main-header {
+  padding: 1.8rem 2rem;
+  background-color: $light-navy;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.inner-container h1 {
+  color: $white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-family: "Inter";
+}
+
+.header-icon {
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 3rem;
+}
