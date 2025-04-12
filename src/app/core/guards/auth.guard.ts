@@ -1,4 +1,4 @@
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateFn, CanMatchFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthStore } from '../auth.store';
 import { map } from 'rxjs';
@@ -9,6 +9,7 @@ export const authGuard: CanActivateFn = () => {
 
   return authStore.token$.pipe(
     map((token) => {
+      console.log(token);
       if (token) {
         return true;
       }

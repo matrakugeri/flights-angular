@@ -15,9 +15,11 @@ export const initialState: AuthState = {
 
 @Injectable({ providedIn: 'root' })
 export class AuthStore {
-  constructor() {}
+  constructor() {
+    this.state$.subscribe(console.log);
+  }
   state$$ = new BehaviorSubject<AuthState>(initialState);
-  state$ = this.state$$.asObservable();
+  state$ = this.state$$.asObservable(); // Read-Only observable
   token$ = this.state$.pipe(map((state) => state.token));
   user$ = this.state$.pipe(map((state) => state.user));
 
@@ -36,6 +38,7 @@ export class AuthStore {
   setToken(token: string): void {
     this.state$$.next({ ...this.authState, token });
   }
+
   setUser(user: UserDetails): void {
     this.state$$.next({ ...this.authState, user });
   }

@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guards';
+import { authGuard } from './core/guards/auth.guard';
+import { nonAuthGuard } from './core/guards/non-auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'flights',
     pathMatch: 'full',
   },
   {
     path: 'login',
+    canActivate: [nonAuthGuard],
     loadComponent: () =>
       import('./pages/auth/containers/login/login.component').then(
         (m) => m.LoginComponent
