@@ -1,23 +1,7 @@
 <app-header (sideBarOpen)="this.isOpen.set(!this.isOpen())"></app-header>
 <div class="flex-container">
-  <div>
-    <app-nav [isExpanded]="this.isOpen()"></app-nav>
-  </div>
+  <app-nav [isExpanded]="this.isOpen()"></app-nav>
   <div class="outlet-container">
-    <div class="search-container">
-      <input type="text" placeholder="&#10132; From" />
-      <input type="text" placeholder="&#10132; To" />
-      <input type="text" placeholder="Airline" />
-      <input type="text" placeholder="Depart" />
-      <input type="text" placeholder="Flight Number" />
-      <button class="btn form-btn">Search</button>
-    </div>
-    <span class="material-symbols-outlined"> home </span>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Example home icon"
-      fontIcon="home"
-    ></mat-icon>
     <router-outlet></router-outlet>
   </div>
 </div>

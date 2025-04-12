@@ -30,7 +30,7 @@ import {
           display: 'block',
         })
       ),
-      transition('expanded <=> collapsed', [animate('0.3s ease')]),
+      transition('expanded <=> collapsed', [animate('150ms ease')]),
     ]),
   ],
   templateUrl: './navigation.component.html',
