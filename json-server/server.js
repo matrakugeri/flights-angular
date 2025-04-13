@@ -77,20 +77,143 @@ server.post("/auth/login", (req, res) => {
 // });
 
 // Flight search logic (keep your existing)
+// server.use((req, res, next) => {
+//   if (req.method === "GET" && req.query.q) {
+//     const {
+//       q,
+//       _start,
+//       _limit,
+//       _sort,
+//       _order,
+//       originFullName,
+//       destinationFullName,
+//       airline,
+//       flightNumber,
+//     } = req.query;
+//     let flights = router.db.get("flights").value();
+//     console.log(req.query, "QUERY");
+
+//     if (q) {
+//     }
+//     const filteredFlights = flights.filter((flight) =>
+//       flight.title.toLowerCase().includes(q.toLowerCase())
+//     );
+
+//     // Filtering logic
+//     if (originFullName) {
+//       flights = flights.filter((flight) =>
+//         flight.originFullName
+//           .toLowerCase()
+//           .includes(originFullName.toLowerCase())
+//       );
+//     }
+
+//     if (destinationFullName) {
+//       flights = flights.filter((flight) =>
+//         flight.destinationFullName
+//           .toLowerCase()
+//           .includes(destinationFullName.toLowerCase())
+//       );
+//     }
+
+//     console.log(airline, "AIRLINE");
+//     if (airline) {
+//       flights = flights.filter((flight) =>
+//         flight.airline.toLowerCase().includes(airline.toLowerCase())
+//       );
+//     }
+
+//     if (flightNumber) {
+//       flights = flights.filter((flight) =>
+//         flight.flightNumber.toLowerCase().includes(flightNumber.toLowerCase())
+//       );
+//     }
+
+//     const totalResults = filteredFlights.length;
+//     console.log(totalResults, "totalResults");
+
+//     if (_sort && _order) {
+//       flights = filteredFlights.sort((a, b) =>
+//         _order === "asc"
+//           ? a[_sort] > b[_sort]
+//             ? 1
+//             : -1
+//           : a[_sort] < b[_sort]
+//           ? 1
+//           : -1
+//       );
+//     } else {
+//       flights = filteredFlights;
+//     }
+
+//     if (_start && _limit) {
+//       flights = flights.slice(Number(_start), Number(_start) + Number(_limit));
+//     }
+
+//     res.setHeader("X-Total-Results", totalResults);
+//     return res.jsonp(flights);
+//   }
+
+//   next();
+// });
+
 server.use((req, res, next) => {
-  if (req.method === "GET" && req.query.q) {
-    const { q, _start, _limit, _sort, _order } = req.query;
+  console.log(req, "REQ");
+  if (req.method === "GET" && req.path === "/flights") {
+    const {
+      q,
+      _start,
+      _limit,
+      _sort,
+      _order,
+      originFullName,
+      destinationFullName,
+      airline,
+      flightNumber,
+    } = req.query;
+
     let flights = router.db.get("flights").value();
+    console.log(req.query, "QUERY");
 
-    const filteredFlights = flights.filter((flight) =>
-      flight.title.toLowerCase().includes(q.toLowerCase())
-    );
+    // Apply all filters
+    flights = flights.filter((flight) => {
+      const matchQuery = q
+        ? flight.title.toLowerCase().includes(q.toLowerCase())
+        : true;
+      const matchOrigin = originFullName
+        ? flight.originFullName
+            ?.toLowerCase()
+            .includes(originFullName.toLowerCase())
+        : true;
+      const matchDestination = destinationFullName
+        ? flight.destinationFullName
+            ?.toLowerCase()
+            .includes(destinationFullName.toLowerCase())
+        : true;
+      const matchAirline = airline
+        ? flight.airline?.toLowerCase().includes(airline.toLowerCase())
+        : true;
+      const matchFlightNumber = flightNumber
+        ? flight.flightNumber
+            ?.toLowerCase()
+            .includes(flightNumber.toLowerCase())
+        : true;
 
-    const totalResults = filteredFlights.length;
+      return (
+        matchQuery &&
+        matchOrigin &&
+        matchDestination &&
+        matchAirline &&
+        matchFlightNumber
+      );
+    });
+
+    const totalResults = flights.length;
     console.log(totalResults, "totalResults");
 
+    // Sorting
     if (_sort && _order) {
-      flights = filteredFlights.sort((a, b) =>
+      flights = flights.sort((a, b) =>
         _order === "asc"
           ? a[_sort] > b[_sort]
             ? 1
@@ -99,10 +222,9 @@ server.use((req, res, next) => {
           ? 1
           : -1
       );
-    } else {
-      flights = filteredFlights;
     }
 
+    // Pagination
     if (_start && _limit) {
       flights = flights.slice(Number(_start), Number(_start) + Number(_limit));
     }
