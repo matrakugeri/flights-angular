@@ -5,10 +5,11 @@ import { Component } from '@angular/core';
   standalone: true,
   styles: [
     `
+      @import 'variables';
       .spinner-div {
         backdrop-filter: blur(5px);
         background-color: rgba(0, 0, 0, 0.1);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         z-index: 99;
@@ -24,7 +25,7 @@ import { Component } from '@angular/core';
       .loader {
         width: 75px;
         height: 75px;
-        border: 7px dotted #0b7285;
+        border: 7px dotted $light-pink-color;
         border-bottom-color: transparent;
         border-radius: 50%;
         display: inline-block;

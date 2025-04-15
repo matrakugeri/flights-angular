@@ -1,0 +1,12 @@
+<form class="search-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Title" formControlName="title" />
+  <input type="text" placeholder="&#10132; From" formControlName="from" />
+  <input type="text" placeholder="&#10132; To" formControlName="to" />
+  <input type="text" placeholder="Airline" formControlName="airline" />
+  <input
+    type="text"
+    placeholder="Flight Number"
+    formControlName="flightNumber"
+  />
+  <button class="btn form-btn">Search</button>
+</form>

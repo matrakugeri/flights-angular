@@ -9,4 +9,5 @@ export interface Flight {
   arrivalTime: string;
   status: string;
   title: string;
+  airline: string;
 }

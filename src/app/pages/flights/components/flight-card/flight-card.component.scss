@@ -1,0 +1,191 @@
+@import "variables";
+
+// ****************** //
+// FLIGHT STYLE
+// ***************** //
+
+.flight-img {
+  width: 10rem;
+  height: 7rem;
+}
+
+.card {
+  position: relative;
+  border-radius: 11px;
+
+  &-paragraph {
+    font-size: 2rem;
+  }
+  &-container--1 {
+    padding: 2rem;
+    perspective: 100rem;
+    background-color: $white;
+
+    backface-visibility: hidden;
+    border-radius: 11px;
+    border: 1px solid darken($rose-border, 5);
+    transition: all 0.8s ease;
+  }
+
+  &-container--2 {
+    transform: rotateY(180deg);
+    padding: 2rem;
+    perspective: 150rem;
+    border-radius: 11px;
+    backface-visibility: hidden;
+    border: 1px solid darken($rose-border, 5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(223, 236, 101, 0.4),
+      rgba(127, 139, 16, 0.4)
+    );
+    transition: all 0.8s ease;
+  }
+
+  &:hover .card-container--1 {
+    transform: rotateY(-180deg);
+  }
+  &:hover .card-container--2 {
+    transform: rotateY(0);
+  }
+}
+
+// .inner-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   gap: 5rem;
+//   margin-top: 2rem;
+// }
+
+.inner-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+}
+
+// STATUS STYLES
+.status-paragraph {
+  font-size: 2rem;
+  color: transparent;
+  background-clip: text;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+// CANCELLED STATUS!
+.cancelled-status {
+  background-image: linear-gradient(
+    to right,
+    $light-red-color,
+    $dark-red-color
+  );
+}
+//********************//
+
+//********************//
+// DELAYED STATUS !
+.delayed-status {
+  background-image: linear-gradient(
+    to right,
+    $light-orange-color,
+    $dark-orange-color
+  );
+}
+//**************//
+
+// SCHEDULED STATUS !
+.scheduled-status {
+  background-image: linear-gradient(
+    to right,
+    $light-blue-color,
+    $dark-blue-color
+  );
+}
+// *****************//
+
+.second-container-heading {
+  background-image: linear-gradient(
+    to right,
+    $light-yellow-color,
+    $dark-yellow-color
+  );
+  color: transparent;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  font-style: italic;
+  letter-spacing: 3px;
+  background-clip: text;
+}
+
+.second-container-big-heading {
+  background-image: linear-gradient(
+    to right,
+    rgba(103, 72, 117, 0.2),
+    rgba(53, 6, 71, 0.2)
+  );
+  color: transparent;
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  padding: 1rem;
+  font-style: italic;
+  letter-spacing: 3px;
+  background-clip: text;
+}
+
+.flight-link {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  width: 100%;
+  max-width: 100%;
+}
+
+.inner-paragraph-country {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.inner-paragraph-time {
+  font-size: 1.6rem;
+}
+
+.country-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.flight-information-container {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1.2rem;
+}
+
+.flight-number {
+  background-image: linear-gradient(
+    to right,
+    $light-gray-color,
+    $dark-gray-color
+  );
+  color: transparent;
+  background-clip: text;
+}

@@ -1,108 +1,12 @@
-<div class="search-container">
-  <input type="text" placeholder="&#10132; From" />
-  <input type="text" placeholder="&#10132; To" />
-  <input type="text" placeholder="Airline" />
-  <input type="text" placeholder="Depart" />
-  <input type="text" placeholder="Flight Number" />
-  <button class="btn form-btn">Search</button>
-</div>
+<app-searching-form (formValues)="getFlights($event)"></app-searching-form>
+
 <div class="card-container-box">
   <!-- @for -->
-  <a href="" class="flight-link">
-    <div class="card">
-      <div class="card-container--1">
-        <div class="flight-information-container">
-          <p class="card-paragraph flight-number">A708B</p>
-          <p class="status-paragraph cancelled-status">Cancelled</p>
-        </div>
-        <div class="inner-container">
-          <div>
-            <p class="inner-paragraph-country">San Francisco</p>
-            <h3 class="country-heading">(FIU)</h3>
-            <p class="inner-paragraph-time">20:45 PM</p>
-          </div>
-          <img
-            src="assets/airplane-flight-svgrepo-com.png"
-            alt="Airplane"
-            class="flight-img"
-          />
-          <div>
-            <p class="inner-paragraph-country">Athens</p>
-            <h3 class="country-heading">(ATH)</h3>
-            <p class="inner-paragraph-time">01:00 AM</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-container--2">
-        <div>
-          <h2 class="second-container-heading">WIZZ AIR</h2>
-        </div>
-      </div>
-    </div>
-  </a>
-  <a href="" class="flight-link">
-    <div class="card">
-      <div class="card-container--1">
-        <div class="flight-information-container">
-          <p class="card-paragraph flight-number">BOEING01</p>
-          <p class="status-paragraph delayed-status">Delayed</p>
-        </div>
-        <div class="inner-container">
-          <div>
-            <p class="inner-paragraph-country">Rome</p>
-            <h3 class="country-heading">(FIU)</h3>
-            <p class="inner-paragraph-time">20:45 PM</p>
-          </div>
-          <img
-            src="assets/airplane-flight-svgrepo-com.png"
-            alt="Airplane"
-            class="flight-img"
-          />
-          <div>
-            <p class="inner-paragraph-country">Athens</p>
-            <h3 class="country-heading">(ATH)</h3>
-            <p class="inner-paragraph-time">01:00 AM</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-container--2">
-        <div>
-          <h2 class="second-container-heading">WIZZ AIR</h2>
-        </div>
-      </div>
-    </div>
-  </a>
 
-  <a href="" class="flight-link">
-    <div class="card">
-      <div class="card-container--1">
-        <div class="flight-information-container">
-          <p class="card-paragraph flight-number">A708B</p>
-          <p class="status-paragraph scheduled-status">Scheduled</p>
-        </div>
-        <div class="inner-container">
-          <div>
-            <p class="inner-paragraph-country">Rome</p>
-            <h3 class="country-heading">(FIU)</h3>
-            <p class="inner-paragraph-time">20:45 PM</p>
-          </div>
-          <img
-            src="assets/airplane-flight-svgrepo-com.png"
-            alt="Airplane"
-            class="flight-img"
-          />
-          <div>
-            <p class="inner-paragraph-country">Athens</p>
-            <h3 class="country-heading">(ATH)</h3>
-            <p class="inner-paragraph-time">01:00 AM</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-container--2">
-        <div>
-          <h2 class="second-container-heading">WIZZ AIR</h2>
-        </div>
-      </div>
-    </div>
-  </a>
+  @if (store.state$ | async; as state) { @if(state.loaded) { @for(flight of
+  state.data;track flight.airline){
+  <app-flight-card [flight]="flight"></app-flight-card>
+  } } @if(state.loading) {
+  <loading-spinner></loading-spinner>
+  } }
 </div>

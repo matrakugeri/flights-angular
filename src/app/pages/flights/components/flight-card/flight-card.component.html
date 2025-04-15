@@ -1,0 +1,46 @@
+<a href="" class="flight-link">
+  <div class="card">
+    <div class="card-container--1">
+      <div class="flight-information-container">
+        <p class="card-paragraph flight-number">{{ flight().flightNumber }}</p>
+        <p
+          class="status-paragraph"
+          [class]="{
+            'scheduled-status': flight().status === 'Scheduled',
+            'cancelled-status': flight().status === 'Cancelled',
+            'delayed-status':flight().status === 'Delayed',
+          }"
+        >
+          {{ flight().status }}
+        </p>
+      </div>
+      <div class="inner-container">
+        <div>
+          <p class="inner-paragraph-country">{{ flight().originFullName }}</p>
+          <h3 class="country-heading">{{ flight().origin }}</h3>
+          <p class="inner-paragraph-time">
+            {{ flight().departureTime | date }}
+          </p>
+        </div>
+        <img
+          src="assets/airplane-flight-svgrepo-com.png"
+          alt="Airplane"
+          class="flight-img"
+        />
+        <div>
+          <p class="inner-paragraph-country">
+            {{ flight().destinationFullName }}
+          </p>
+          <h3 class="country-heading">{{ flight().destination }}</h3>
+          <p class="inner-paragraph-time">{{ flight().arrivalTime | date }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-container--2">
+      <div>
+        <h1 class="second-container-big-heading">{{ flight().title }}</h1>
+        <h2 class="second-container-heading">{{ flight().airline }}</h2>
+      </div>
+    </div>
+  </div>
+</a>

@@ -4,6 +4,7 @@
   display: flex;
   width: 100%;
   max-width: 100%;
+  min-height: 100vh;
   background-color: $secondary-layout-color;
 }
 
@@ -11,6 +12,7 @@
   background-color: $secondary-layout-color;
   padding: 5rem;
   width: 100%;
+  position: relative;
   // height: 100%;
   max-width: 100%;
 }
