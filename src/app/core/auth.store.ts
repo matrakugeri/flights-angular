@@ -18,6 +18,7 @@ export class AuthStore {
   constructor() {
     this.state$.subscribe(console.log);
   }
+
   state$$ = new BehaviorSubject<AuthState>(initialState);
   state$ = this.state$$.asObservable(); // Read-Only observable
   token$ = this.state$.pipe(map((state) => state.token));

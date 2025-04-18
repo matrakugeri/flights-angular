@@ -4,6 +4,11 @@ import { ComponentStore } from '@ngrx/component-store';
 import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs';
 import { FlightsService } from './flights.service';
 
+export interface FlightsResponse {
+  total: number;
+  data: Flight[];
+}
+
 export interface FlightParams {
   limit: number;
   start: number;
@@ -59,9 +64,10 @@ export class FlightsStore extends ComponentStore<FlightsState> {
 
         // NEED TOTALS --- for pagination
         return this.flightsService.getFlights(newParams).pipe(
-          tap((response: Flight[]) => {
+          tap((response: FlightsResponse) => {
+            console.log(response);
             this.patchState({
-              data: response,
+              data: response.data,
               loading: false,
               loaded: true,
               params: newParams,

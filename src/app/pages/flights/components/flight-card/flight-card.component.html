@@ -19,7 +19,7 @@
           <p class="inner-paragraph-country">{{ flight().originFullName }}</p>
           <h3 class="country-heading">{{ flight().origin }}</h3>
           <p class="inner-paragraph-time">
-            {{ flight().departureTime | date }}
+            {{ flight().departureTime | date : "MMM d, h:mm a" }}
           </p>
         </div>
         <img
@@ -32,7 +32,9 @@
             {{ flight().destinationFullName }}
           </p>
           <h3 class="country-heading">{{ flight().destination }}</h3>
-          <p class="inner-paragraph-time">{{ flight().arrivalTime | date }}</p>
+          <p class="inner-paragraph-time">
+            {{ flight().arrivalTime | date : "MMM d, h:mm a" }}
+          </p>
         </div>
       </div>
     </div>

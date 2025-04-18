@@ -4,6 +4,7 @@
   display: grid;
   justify-items: center;
   padding: 2rem 0;
+  box-shadow: 2px 1px 0.6rem rgba(70, 62, 62, 0.3);
   background-color: $white;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
   row-gap: 2rem;

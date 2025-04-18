@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Flight } from '../flight-model/flight.model';
 import { environment } from '../../../../environments/environment';
 import { delay, Observable } from 'rxjs';
+import { FlightsResponse } from './flights.store';
 
 @Injectable({ providedIn: 'root' })
 export class FlightsService {
@@ -10,10 +11,10 @@ export class FlightsService {
 
   constructor() {}
 
-  getFlights(params: any): Observable<Flight[]> {
+  getFlights(params: any): Observable<FlightsResponse> {
     console.log(params);
     return this.http
-      .get<Flight[]>(`${environment.apiUrl}/flights`, {
+      .get<FlightsResponse>(`${environment.apiUrl}/flights`, {
         params: this.getParams(params),
       })
       .pipe(delay(2000));

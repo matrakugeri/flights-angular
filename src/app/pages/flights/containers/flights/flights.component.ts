@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FlightsStore } from '../../services/flights.store';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 import { FlightCardComponent } from '../../components/flight-card/flight-card.component';
 import {
@@ -8,6 +8,7 @@ import {
   SearchingFormComponent,
 } from '../../components/searching-form/searching-form.component';
 import { FlightsService } from '../../services/flights.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-flights',
@@ -16,6 +17,8 @@ import { FlightsService } from '../../services/flights.service';
     SpinnerComponent,
     FlightCardComponent,
     SearchingFormComponent,
+    MatPaginatorModule,
+    NgIf,
   ],
   standalone: true,
   templateUrl: './flights.component.html',

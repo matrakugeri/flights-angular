@@ -1,12 +1,29 @@
 <app-searching-form (formValues)="getFlights($event)"></app-searching-form>
 
-<div class="card-container-box">
-  <!-- @for -->
+<ng-container *ngIf="store.state$ | async as state">
+  <div class="card-container-box">
+    @if(state.loaded && state.data.length > 0) { @for(flight of state.data;track
+    flight.id){
+    <app-flight-card [flight]="flight"></app-flight-card>
+    } } @if(state.loading) {
+    <loading-spinner></loading-spinner>
+    } @else if(state.loaded && state.data.length === 0){
+    <p class="error">
+      No flight was found.<br />
+      Please search for a valid flight.
+    </p>
+    } @else {
+    <p class="control-error">{{ state.error }}</p>
+    }
+  </div>
+  @if(state.loaded && state.data.length > 0){
 
-  @if (store.state$ | async; as state) { @if(state.loaded) { @for(flight of
-  state.data;track flight.airline){
-  <app-flight-card [flight]="flight"></app-flight-card>
-  } } @if(state.loading) {
-  <loading-spinner></loading-spinner>
-  } }
-</div>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+  }
+</ng-container>

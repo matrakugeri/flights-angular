@@ -31,7 +31,6 @@ export class AuthService {
         }),
         catchError((err) => {
           this.snackBar.open(err.error.message, 'ERROR OCCURED', {
-            duration: 30000,
             panelClass: ['custom-snackbar'],
           });
           return throwError(() => err);
@@ -50,14 +49,12 @@ export class AuthService {
         tap({
           next: () =>
             this.snackBar.open('You registered successfully', 'Message', {
-              duration: 30000,
               panelClass: ['custom-snackbar'],
             }),
         }),
         catchError((err) => {
           console.log(err);
           this.snackBar.open(err.error.message, 'ERROR', {
-            duration: 30000,
             panelClass: ['custom-snackbar'],
           });
           return throwError(() => err);

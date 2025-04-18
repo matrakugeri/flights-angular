@@ -45,5 +45,6 @@ export class SearchingFormComponent {
       title: this.form.controls.title.value,
       flightNumber: this.form.controls.flightNumber.value,
     });
+    this.form.reset();
   }
 }

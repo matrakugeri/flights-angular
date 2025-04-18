@@ -62,6 +62,31 @@ body {
   font-size: 1.3rem !important;
 }
 
+.mat-mdc-button .mdc-button__label {
+  font-size: 1.3rem !important;
+}
+
 .active {
-  background-color: #aaa;
+  background-color: darken($sidebar-color, 10);
+}
+
+.error {
+  font-size: 2rem;
+  background-image: linear-gradient(to right, #12b886, #054e38);
+  color: transparent;
+  background-clip: text;
+}
+.mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator-range-label,
+.mat-mdc-option.mdc-list-item {
+  font-size: 1.7rem !important;
+}
+
+.mat-mdc-select-value-text {
+  font-size: 1.6rem !important;
+}
+.mat-mdc-paginator-container {
+  box-shadow: 2px 2px 0.6rem rgba(70, 62, 62, 0.3);
+  border-radius: 11px;
+  padding: 1.5rem !important;
 }
