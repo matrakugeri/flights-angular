@@ -1251,6 +1251,11 @@
       "id": 1744284716148,
       "email": "geri@gmail.com",
       "password": "$2b$10$HFNF5G63/TJEmQU3CwUG9e/W/QF8/an2XjcHX01j4B2fc.qsbJ922"
+    },
+    {
+      "id": 1744821778041,
+      "email": "myuserw@gmail.com",
+      "password": "$2b$10$aduF5mYmLh.IuQnDY6qLLuB8U9ipWUK4lYBFZndGgYPoHJNjh8N0O"
     }
   ]
 }

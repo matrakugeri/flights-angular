@@ -230,7 +230,7 @@ server.use((req, res, next) => {
     }
 
     res.setHeader("X-Total-Results", totalResults);
-    return res.jsonp(flights);
+    return res.jsonp({ total: totalResults, data: flights });
   }
 
   next();
