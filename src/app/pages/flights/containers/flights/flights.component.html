@@ -17,11 +17,11 @@
     }
   </div>
   @if(state.loaded && state.data.length > 0){
-
   <mat-paginator
-    [length]="100"
-    [pageSize]="10"
+    [length]="state.total"
+    [pageSize]="state.params.limit"
     [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)"
     aria-label="Select page"
   >
   </mat-paginator>

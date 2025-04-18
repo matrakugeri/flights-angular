@@ -23,6 +23,7 @@ export interface FlightsState {
   params: FlightParams;
   loading: boolean;
   loaded: boolean;
+  total: number;
   error: string | null;
 }
 
@@ -36,6 +37,7 @@ export const initialState: FlightsState = {
     destinationFullName: null,
     airline: null,
   },
+  total: 0,
   loading: false,
   loaded: false,
   error: null,
@@ -71,6 +73,7 @@ export class FlightsStore extends ComponentStore<FlightsState> {
               loading: false,
               loaded: true,
               params: newParams,
+              total: response.total,
               error: null,
             });
           }),
@@ -80,6 +83,7 @@ export class FlightsStore extends ComponentStore<FlightsState> {
               loading: false,
               loaded: false,
               params: initialState.params,
+              total: 0,
               error: err,
             });
             return EMPTY;

@@ -34,6 +34,16 @@ export default class FlightsComponent implements OnInit {
   }
 
   getFlights(params: FormObject) {
-    this.store.load(params);
+    this.store.load({ ...params });
+  }
+
+  onPageChange(event: any) {
+    console.log(event);
+    console.log(event.pageIndex, event.pageSize);
+
+    const start = event.pageIndex * event.pageSize;
+    const limit = event.pageSize;
+
+    this.store.load({ start, limit });
   }
 }

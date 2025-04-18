@@ -12,6 +12,10 @@
   border-radius: 11px;
   border: 1px solid darken($rose-border, 5);
 
+  @media (max-width: 73em) {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+
   input {
     width: 25rem;
     padding: 1.5rem;
