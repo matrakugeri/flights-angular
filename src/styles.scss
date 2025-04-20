@@ -135,3 +135,9 @@ button {
 .add {
   font-size: 2.2rem;
 }
+
+.mat-mdc-form-field:not(.mat-form-field-disabled)
+  .mat-mdc-floating-label.mdc-floating-label,
+.mat-mdc-form-field.mat-form-field-animations-enabled .mdc-text-field__input {
+  font-size: 1.6rem !important;
+}

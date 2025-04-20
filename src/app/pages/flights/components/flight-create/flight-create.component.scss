@@ -1,0 +1,58 @@
+@import "variables";
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-form-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.create-flight-form {
+  padding: 2.5rem;
+  border-radius: 11px;
+  box-shadow: 2px 2px 2rem rgba(0, 0, 0, 0.3);
+  width: 800px;
+}
+
+.create-flight-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+  width: 500px;
+  justify-self: center;
+}
+
+.datetime-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  margin-top: 4rem;
+  justify-items: center;
+}
+
+.datetime-inner-container {
+  width: 250px;
+}
+
+.datetime-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.inner-container-heading {
+  margin-bottom: 2rem;
+  font-size: 1.7rem;
+  background-image: linear-gradient(
+    to right,
+    $light-blue-color,
+    $dark-blue-color
+  );
+  color: transparent;
+  background-clip: text;
+  text-align: center;
+}
