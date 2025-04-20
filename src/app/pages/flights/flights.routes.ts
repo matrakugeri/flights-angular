@@ -5,8 +5,11 @@ export const FLIGHT_ROUTES: Routes = [
     path: '',
     loadComponent: () => import('./containers/flights/flights.component'),
   },
-  // {
-  //   path:':id',
-  //   loadComponent:()=>import()
-  // }
+  {
+    path: 'create',
+    loadComponent: () =>
+      import(
+        '../flights/components/flight-create/flight-create.component'
+      ).then((m) => m.FlightCreateComponent),
+  },
 ];

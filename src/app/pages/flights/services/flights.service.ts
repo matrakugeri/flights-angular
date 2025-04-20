@@ -17,7 +17,7 @@ export class FlightsService {
       .get<FlightsResponse>(`${environment.apiUrl}/flights`, {
         params: this.getParams(params),
       })
-      .pipe(delay(2000));
+      .pipe(delay(100));
   }
 
   getParams(params: any): HttpParams {

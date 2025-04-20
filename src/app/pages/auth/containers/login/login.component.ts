@@ -22,20 +22,30 @@ export class LoginComponent {
   isLoading = signal<boolean>(false);
 
   form = new FormGroup({
-    email: new FormControl('myuser@gmail.com', {
+    email: new FormControl('admin@example.com', {
       validators: [Validators.required, Validators.email],
     }),
-    password: new FormControl('myuser!', {
-      validators: [
-        Validators.required,
-        Validators.minLength(7),
-        containsValidChar,
-      ],
+    password: new FormControl('admin2!', {
+      validators: [Validators.required],
     }),
   });
 
   onClick() {
     this.isLoginMode.set(!this.isLoginMode());
+    console.log(this.form);
+    if (!this.isLoginMode()) {
+      this.form
+        .get('password')
+        ?.setValidators([
+          Validators.required,
+          Validators.minLength(7),
+          containsValidChar,
+        ]);
+      this.form.get('password')?.updateValueAndValidity();
+    } else {
+      this.form.get('password')?.setValidators([Validators.required]);
+      this.form.get('password')?.updateValueAndValidity();
+    }
   }
 
   onSubmit() {

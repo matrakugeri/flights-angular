@@ -10,3 +10,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+.create-flight-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.btn-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2rem;
+  text-decoration: none;
+}

@@ -8,5 +8,15 @@
     placeholder="Flight Number"
     formControlName="flightNumber"
   />
-  <button class="btn form-btn">Search</button>
+  <button type="submit" class="btn form-btn" [disabled]="!isNotEmptyForm">
+    Search
+  </button>
+  <button
+    type="button"
+    class="btn2 btn-reset"
+    (click)="onReset()"
+    [disabled]="!isNotEmptyForm"
+  >
+    Reset
+  </button>
 </form>

@@ -14,6 +14,7 @@ export interface FlightParams {
   start: number;
   title?: string | null;
   flightNumber?: string | null;
+  originFullName?: string | null;
   destinationFullName?: string | null;
   airline?: string | null;
 }
@@ -34,6 +35,7 @@ export const initialState: FlightsState = {
     start: 0,
     title: null,
     flightNumber: null,
+    originFullName: null,
     destinationFullName: null,
     airline: null,
   },
@@ -61,6 +63,7 @@ export class FlightsStore extends ComponentStore<FlightsState> {
       }),
       switchMap((params) => {
         console.log(params, 'PARAMS!');
+
         const newParams = { ...this.params, ...params };
         console.log(newParams);
 

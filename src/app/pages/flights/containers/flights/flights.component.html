@@ -1,6 +1,49 @@
-<app-searching-form (formValues)="getFlights($event)"></app-searching-form>
+<ng-container *ngIf="queryParams$ | async"></ng-container>
 
-<ng-container *ngIf="store.state$ | async as state">
+@if(store.state$ | async; as state) {
+<app-searching-form
+  [params]="state.params"
+  (formValues)="getFlights($event)"
+  (resetForm)="onReset($event)"
+></app-searching-form>
+
+<div class="create-flight-container">
+  <a [routerLink]="['create']" class="btn2 btn-edit btn-flex">
+    <i class="material-icons add">add</i> Create
+  </a>
+</div>
+
+<div class="card-container-box">
+  @if(state.loaded) { @for(flight of state.data;track flight.id) {
+  <app-flight-card [flight]="flight"></app-flight-card>
+  } @empty {
+  <p class="error">
+    No flight was found.<br />
+    Please search for a valid flight.
+  </p>
+  } } @if(state.loading) {
+  <loading-spinner></loading-spinner>
+  } @else if(state.error) {
+  <p class="control-error">{{ state.error }}</p>
+  }
+</div>
+@if(state.loaded && state.data.length > 0){
+<mat-paginator
+  [length]="state.total"
+  [pageSize]="state.params.limit"
+  [pageIndex]="state.params.start"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="onPageChange($event)"
+  aria-label="Select page"
+>
+</mat-paginator>
+} }
+<!-- <ng-container *ngIf="store.state$ | async as state">
+  <app-searching-form
+    [params]="state.params"
+    (formValues)="getFlights($event)"
+  ></app-searching-form>
+
   <div class="card-container-box">
     @if(state.loaded && state.data.length > 0) { @for(flight of state.data;track
     flight.id){
@@ -26,4 +69,4 @@
   >
   </mat-paginator>
   }
-</ng-container>
+</ng-container> -->

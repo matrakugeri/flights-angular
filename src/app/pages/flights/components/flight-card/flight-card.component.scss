@@ -21,7 +21,6 @@
     box-shadow: 2px 0 0.6rem rgba(70, 62, 62, 0.3);
     perspective: 100rem;
     background-color: $white;
-
     backface-visibility: hidden;
     border-radius: 11px 11px 0 0;
     border: 1px solid darken($rose-border, 5);
@@ -33,6 +32,7 @@
     padding: 2rem;
     perspective: 150rem;
     border-radius: 11px 11px 0 0;
+    box-shadow: 2px 0 0.6rem rgba(70, 62, 62, 0.3);
     backface-visibility: hidden;
     border: 1px solid darken($rose-border, 5);
     position: absolute;
@@ -201,34 +201,4 @@
   border-radius: 0 0 11px 11px;
   border-top: 1px solid #d6acac;
   box-shadow: 0 2px 0.6rem rgba(70, 62, 62, 0.3);
-}
-
-.btn2 {
-  font-size: 1.2rem;
-  padding: 1.2rem 2rem;
-  border: none;
-  text-transform: uppercase;
-  border-radius: 9px;
-  cursor: pointer;
-}
-
-.btn-edit {
-  background-color: $button-bg;
-  color: $white;
-  transition: all 0.4s;
-
-  &:hover {
-    background-color: darken($button-bg, 15);
-  }
-}
-
-.btn-delete {
-  background-color: $white;
-  color: black;
-  border: 1px solid rgb(70, 56, 55);
-  transition: all 0.4s;
-
-  &:hover {
-    background-color: darken($white, 25);
-  }
 }

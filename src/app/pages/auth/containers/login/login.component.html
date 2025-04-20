@@ -32,7 +32,8 @@
     this.form.controls.email.dirty){
     <p class="control-error">Please enter a valid address</p>
     } @if(this.form.controls.password.touched &&
-    this.form.controls.password.invalid && this.form.controls.password.dirty){
+    this.form.get('password')?.hasError('doesNotContain') &&
+    this.form.controls.password.dirty){
     <p class="control-error">
       Password must contain 6 letters and a special character
     </p>

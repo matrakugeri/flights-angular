@@ -7,6 +7,7 @@
   box-shadow: 2px 1px 0.6rem rgba(70, 62, 62, 0.3);
   background-color: $white;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
   row-gap: 2rem;
   margin-bottom: 4rem;
   border-radius: 11px;
@@ -14,6 +15,9 @@
 
   @media (max-width: 73em) {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+  @media (max-width: 56em) {
+    grid-template-columns: 1fr;
   }
 
   input {
@@ -31,6 +35,26 @@
 }
 
 .form-btn {
+  max-width: 25rem;
   width: 25rem;
   letter-spacing: 1px;
+}
+
+.btn-reset {
+  width: 25rem;
+  background-color: $white;
+  color: black;
+  border: 1px solid rgb(70, 56, 55);
+  grid-column: 3/4;
+  letter-spacing: 1px;
+
+  &:not(:disabled):hover {
+    background-color: darken($white, 10);
+  }
+  @media (max-width: 73em) {
+    grid-column: 2/3;
+  }
+  @media (max-width: 56em) {
+    grid-column: 1/2;
+  }
 }

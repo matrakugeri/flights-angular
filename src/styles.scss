@@ -19,7 +19,7 @@ body {
 }
 
 .btn {
-  padding: 1.2rem 1.6rem;
+  padding: 1.5rem 1.6rem;
   border: none;
   color: #fff;
   border: 1px solid #fff;
@@ -47,11 +47,6 @@ body {
   color: blue;
 }
 
-.not-allowed {
-  cursor: not-allowed;
-  opacity: 70%;
-}
-
 .centered-spinner {
   display: flex;
   justify-content: center;
@@ -67,7 +62,7 @@ body {
 }
 
 .active {
-  background-color: darken($sidebar-color, 10);
+  background-color: lighten($sidebar-color, 12);
 }
 
 .error {
@@ -93,4 +88,39 @@ body {
 
 .mat-mdc-icon-button {
   font-size: 1.6rem !important;
+}
+
+.btn2 {
+  font-size: 1.3rem;
+  padding: 1.5rem 1.6rem;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: $button-bg;
+  color: $white;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: darken($button-bg, 15);
+  }
+}
+
+.secondary-btn {
+  background-color: $white;
+  color: black;
+  border: 1px solid rgb(70, 56, 55);
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: darken($white, 25);
+  }
+}
+
+.not-allowed {
+  cursor: not-allowed;
+  opacity: 70%;
 }
