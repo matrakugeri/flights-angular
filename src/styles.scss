@@ -120,7 +120,18 @@ body {
   }
 }
 
-.not-allowed {
-  cursor: not-allowed;
-  opacity: 70%;
+button {
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
+  }
+}
+
+// .not-allowed {
+//   cursor: not-allowed;
+//   opacity: 70%;
+// }
+
+.add {
+  font-size: 2.2rem;
 }
