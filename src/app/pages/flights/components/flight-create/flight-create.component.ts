@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchingFormComponent } from '../searching-form/searching-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-flight-create',
   standalone: true,
-  imports: [SearchingFormComponent],
+  imports: [MatFormFieldModule, MatInputModule],
   templateUrl: './flight-create.component.html',
   styleUrl: './flight-create.component.scss',
 })
