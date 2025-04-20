@@ -32,7 +32,8 @@ function getUser(email, password, db) {
 
 // Register endpoint
 server.post("/auth/register", (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role = "user" } = req.body;
+  console.log(req.body, "//////////////////////////");
   const db = router.db;
 
   if (db.get("users").find({ email }).value()) {
@@ -40,11 +41,11 @@ server.post("/auth/register", (req, res) => {
   }
 
   const hashedPassword = bcrypt.hashSync(password, 10);
-  const newUser = { id: Date.now(), email, password: hashedPassword };
+  const newUser = { id: Date.now(), email, password: hashedPassword, role };
   db.get("users").push(newUser).write();
 
   const token = createToken({ email, id: newUser.id });
-  res.status(201).json({ token, user: { id: newUser.id, email } });
+  res.status(201).json({ token, user: { id: newUser.id, email, role } });
 });
 
 // Login endpoint
@@ -58,8 +59,94 @@ server.post("/auth/login", (req, res) => {
     return res.status(401).json({ message: "Invalid email or password" });
   }
 
-  const token = createToken({ email, id: user.id });
-  res.status(200).json({ token, user: { id: user.id, email } });
+  const token = createToken({ email, id: user.id, role: user.role });
+  res
+    .status(200)
+    .json({ token, user: { id: user.id, email, role: user.role } });
+});
+
+server.use((req, res, next) => {
+  console.log(req, "REQ");
+  if (req.method === "GET" && req.path === "/flights") {
+    const {
+      q,
+      _start,
+      _limit,
+      _sort,
+      _order,
+      originFullName,
+      destinationFullName,
+      airline,
+      flightNumber,
+    } = req.query;
+
+    let flights = router.db.get("flights").value();
+    console.log(req.query, "QUERY");
+
+    // Apply all filters
+    flights = flights.filter((flight) => {
+      const matchQuery = q
+        ? flight.title.toLowerCase().includes(q.toLowerCase())
+        : true;
+      const matchOrigin = originFullName
+        ? flight.originFullName
+            ?.toLowerCase()
+            .includes(originFullName.toLowerCase())
+        : true;
+      const matchDestination = destinationFullName
+        ? flight.destinationFullName
+            ?.toLowerCase()
+            .includes(destinationFullName.toLowerCase())
+        : true;
+      const matchAirline = airline
+        ? flight.airline?.toLowerCase().includes(airline.toLowerCase())
+        : true;
+      const matchFlightNumber = flightNumber
+        ? flight.flightNumber
+            ?.toLowerCase()
+            .includes(flightNumber.toLowerCase())
+        : true;
+
+      return (
+        matchQuery &&
+        matchOrigin &&
+        matchDestination &&
+        matchAirline &&
+        matchFlightNumber
+      );
+    });
+
+    const totalResults = flights.length;
+    console.log(totalResults, "totalResults");
+
+    // Sorting
+    if (_sort && _order) {
+      flights = flights.sort((a, b) =>
+        _order === "asc"
+          ? a[_sort] > b[_sort]
+            ? 1
+            : -1
+          : a[_sort] < b[_sort]
+          ? 1
+          : -1
+      );
+    }
+
+    // Pagination
+    if (_start && _limit) {
+      flights = flights.slice(Number(_start), Number(_start) + Number(_limit));
+    }
+
+    res.setHeader("X-Total-Results", totalResults);
+    return res.jsonp({ total: totalResults, data: flights });
+  }
+
+  next();
+});
+
+server.use(router);
+server.listen(3333, () => {
+  console.log("JSON Server is running at http://localhost:3333");
 });
 
 // Protect other routes (optional)
@@ -156,90 +243,6 @@ server.post("/auth/login", (req, res) => {
 
 //   next();
 // });
-
-server.use((req, res, next) => {
-  console.log(req, "REQ");
-  if (req.method === "GET" && req.path === "/flights") {
-    const {
-      q,
-      _start,
-      _limit,
-      _sort,
-      _order,
-      originFullName,
-      destinationFullName,
-      airline,
-      flightNumber,
-    } = req.query;
-
-    let flights = router.db.get("flights").value();
-    console.log(req.query, "QUERY");
-
-    // Apply all filters
-    flights = flights.filter((flight) => {
-      const matchQuery = q
-        ? flight.title.toLowerCase().includes(q.toLowerCase())
-        : true;
-      const matchOrigin = originFullName
-        ? flight.originFullName
-            ?.toLowerCase()
-            .includes(originFullName.toLowerCase())
-        : true;
-      const matchDestination = destinationFullName
-        ? flight.destinationFullName
-            ?.toLowerCase()
-            .includes(destinationFullName.toLowerCase())
-        : true;
-      const matchAirline = airline
-        ? flight.airline?.toLowerCase().includes(airline.toLowerCase())
-        : true;
-      const matchFlightNumber = flightNumber
-        ? flight.flightNumber
-            ?.toLowerCase()
-            .includes(flightNumber.toLowerCase())
-        : true;
-
-      return (
-        matchQuery &&
-        matchOrigin &&
-        matchDestination &&
-        matchAirline &&
-        matchFlightNumber
-      );
-    });
-
-    const totalResults = flights.length;
-    console.log(totalResults, "totalResults");
-
-    // Sorting
-    if (_sort && _order) {
-      flights = flights.sort((a, b) =>
-        _order === "asc"
-          ? a[_sort] > b[_sort]
-            ? 1
-            : -1
-          : a[_sort] < b[_sort]
-          ? 1
-          : -1
-      );
-    }
-
-    // Pagination
-    if (_start && _limit) {
-      flights = flights.slice(Number(_start), Number(_start) + Number(_limit));
-    }
-
-    res.setHeader("X-Total-Results", totalResults);
-    return res.jsonp({ total: totalResults, data: flights });
-  }
-
-  next();
-});
-
-server.use(router);
-server.listen(3333, () => {
-  console.log("JSON Server is running at http://localhost:3333");
-});
 
 // const jsonServer = require("json-server");
 // const server = jsonServer.create();
