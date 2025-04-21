@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Flight } from '../flight-model/flight.model';
 import { environment } from '../../../../environments/environment';
-import { delay, Observable } from 'rxjs';
+import { catchError, delay, Observable, tap, throwError } from 'rxjs';
 import { FlightsResponse } from './flights.store';
 
 @Injectable({ providedIn: 'root' })
@@ -10,6 +10,14 @@ export class FlightsService {
   http = inject(HttpClient);
 
   constructor() {}
+
+  createFlight(flight: Omit<Flight, 'id'>) {
+    return this.http.post<Flight>(`${environment.apiUrl}/flights`, flight).pipe(
+      delay(2000),
+      tap((res) => console.log(res)),
+      catchError((err) => throwError(() => err))
+    );
+  }
 
   getFlights(params: any): Observable<FlightsResponse> {
     console.log(params);

@@ -10,6 +10,9 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 2.2rem;
+  font-weight: 500;
+  color: #6e4343;
 }
 
 .create-flight-form {
@@ -17,21 +20,25 @@
   border-radius: 11px;
   box-shadow: 2px 2px 2rem rgba(0, 0, 0, 0.3);
   width: 800px;
+  margin-bottom: 3.2rem;
 }
 
 .create-flight-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.2rem;
-  width: 500px;
+  width: 550px;
   justify-self: center;
 }
 
 .datetime-grid-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
-  margin-top: 4rem;
+  margin-top: 3.2rem;
   justify-items: center;
+  border: 1px solid #aaa;
+  border-radius: 11px;
+  padding: 3rem;
 }
 
 .datetime-inner-container {
@@ -42,6 +49,8 @@
   font-size: 2rem;
   text-align: center;
   margin-top: 2rem;
+  font-weight: 500;
+  color: #6e4343;
 }
 
 .inner-container-heading {
@@ -55,4 +64,18 @@
   color: transparent;
   background-clip: text;
   text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2.5rem 1rem 1.3rem 0;
+  gap: 1rem;
+}
+
+.control-form {
+  font-size: 1.5rem;
+  margin: 1rem 1rem 2rem 1rem;
+  color: red;
 }

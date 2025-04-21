@@ -1,38 +1,47 @@
+@if(isLoading()){
+<loading-spinner />
+}
+
 <section class="center">
-  <form action="" class="create-flight-form">
+  <form
+    action=""
+    class="create-flight-form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
     <h2 class="primary-form-heading">CREATE A NEW FLIGHT</h2>
     <div class="create-flight-container">
       <mat-form-field appearance="outline">
         <mat-label>Origin</mat-label>
-        <input matInput />
+        <input matInput formControlName="origin" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Origin FullName</mat-label>
-        <input matInput />
+        <input matInput formControlName="originFullName" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Destination</mat-label>
-        <input matInput />
+        <input matInput formControlName="destination" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Destination FullName</mat-label>
-        <input matInput />
+        <input matInput formControlName="destinationFullName" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input matInput />
+        <input matInput formControlName="title" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Airline</mat-label>
-        <input matInput />
+        <input matInput formControlName="airline" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>FlightNumber</mat-label>
-        <input matInput />
+        <input matInput formControlName="flightNumber" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Status</mat-label>
-        <input matInput />
+        <input matInput formControlName="status" />
       </mat-form-field>
     </div>
     <h2 class="datetime-heading">SELECT DATE AND TIME</h2>
@@ -41,13 +50,21 @@
         <h3 class="inner-container-heading">Departure Time</h3>
         <mat-form-field appearance="outline">
           <mat-label>Pick Departure Time</mat-label>
-          <input matInput [matTimepicker]="picker1" />
+          <input
+            matInput
+            [matTimepicker]="picker1"
+            formControlName="departureTime"
+          />
           <mat-timepicker-toggle matIconSuffix [for]="picker1" />
           <mat-timepicker #picker1 />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Departure date</mat-label>
-          <input matInput [matDatepicker]="datepicker" />
+          <input
+            matInput
+            [matDatepicker]="datepicker"
+            formControlName="departureDate"
+          />
           <mat-datepicker #datepicker />
           <mat-datepicker-toggle [for]="datepicker" matSuffix />
         </mat-form-field>
@@ -56,17 +73,43 @@
         <h3 class="inner-container-heading">Arrival Time</h3>
         <mat-form-field appearance="outline">
           <mat-label>Pick Arrival Time</mat-label>
-          <input matInput [matTimepicker]="picker" />
+          <input
+            matInput
+            [matTimepicker]="picker"
+            formControlName="arrivalTime"
+          />
           <mat-timepicker-toggle matIconSuffix [for]="picker" />
           <mat-timepicker #picker />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Arrival date</mat-label>
-          <input matInput [matDatepicker]="datepicker1" />
+          <input
+            matInput
+            [matDatepicker]="datepicker1"
+            formControlName="arrivalDate"
+          />
           <mat-datepicker #datepicker1 />
           <mat-datepicker-toggle [for]="datepicker1" matSuffix />
         </mat-form-field>
       </div>
+    </div>
+    @if(form.invalid){
+    <p class="control-form">
+      Please fill all the fields in order to create a new flight.
+    </p>
+    }
+    <div class="flex-container">
+      <button type="submit" class="btn2 btn-edit" [disabled]="form.invalid">
+        Save
+      </button>
+      <button
+        class="btn2 secondary-btn"
+        type="button"
+        (click)="onDiscard()"
+        [disabled]="form.invalid"
+      >
+        Discard
+      </button>
     </div>
   </form>
 </section>
