@@ -15,6 +15,7 @@ import { FlightsService } from '../../services/flights.service';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Flight } from '../../flight-model/flight.model';
+import { compareDateValidator } from '../../../../utils/validators';
 
 @Component({
   selector: 'app-flight-create',
@@ -53,7 +54,7 @@ export class FlightCreateComponent {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
 
-    return `${year}-${day}-${month}`;
+    return `${year}-${month}-${day}`;
   }
 
   getBothFormatted(timeStr: string, dateStr: string): string {
@@ -66,56 +67,59 @@ export class FlightCreateComponent {
     return formattedBoth;
   }
 
-  form = new FormGroup({
-    origin: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    originFullName: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    destination: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    destinationFullName: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    title: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    airline: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    flightNumber: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    status: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    departureTime: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    departureDate: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    arrivalTime: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-    arrivalDate: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
-  });
+  form = new FormGroup(
+    {
+      origin: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      originFullName: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      destination: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      destinationFullName: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      title: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      airline: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      flightNumber: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      status: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      departureTime: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      departureDate: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      arrivalTime: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+      arrivalDate: new FormControl('', {
+        validators: [Validators.required],
+        nonNullable: true,
+      }),
+    },
+    { validators: compareDateValidator() }
+  );
 
   onSubmit() {
     if (this.form.invalid) return;
@@ -148,6 +152,11 @@ export class FlightCreateComponent {
           duration: 2000,
         }),
     });
+  }
+
+  get isNotEmptyForm(): boolean {
+    const values = this.form.value;
+    return Object.values(values).some((value) => !!value?.toString().trim());
   }
 
   onDiscard() {

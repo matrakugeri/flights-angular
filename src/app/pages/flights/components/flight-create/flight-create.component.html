@@ -1,7 +1,6 @@
 @if(isLoading()){
 <loading-spinner />
 }
-
 <section class="center">
   <form
     action=""
@@ -93,11 +92,11 @@
         </mat-form-field>
       </div>
     </div>
-    @if(form.invalid){
-    <p class="control-form">
-      Please fill all the fields in order to create a new flight.
-    </p>
+
+    @if(form.hasError('dateValidator')){
+    <p class="form-error">Please select a valid date.</p>
     }
+
     <div class="flex-container">
       <button type="submit" class="btn2 btn-edit" [disabled]="form.invalid">
         Save
@@ -106,10 +105,14 @@
         class="btn2 secondary-btn"
         type="button"
         (click)="onDiscard()"
-        [disabled]="form.invalid"
+        [disabled]="!isNotEmptyForm"
       >
         Discard
       </button>
     </div>
+    <p class="reminder">Reminder *</p>
+    <p class="control-form">
+      Please fill all the fields in order to create a new flight.
+    </p>
   </form>
 </section>

@@ -56,11 +56,12 @@ export default class FlightsComponent {
     console.log(event);
     console.log(event.pageIndex, event.pageSize);
 
-    const start = event.pageIndex;
+    const start = event.pageIndex * event.pageSize;
     const limit = event.pageSize;
     const currentParams = this.store.params;
 
     this.store.load({ start, limit });
+
     this.router.navigate(['/flights'], {
       queryParams: {
         ...currentParams,
@@ -69,6 +70,24 @@ export default class FlightsComponent {
       },
     });
   }
+
+  // onPageChange(event: any) {
+  //   console.log(event);
+  //   console.log(event.pageIndex, event.pageSize);
+
+  //   const start = event.pageIndex;
+  //   const limit = event.pageSize;
+  //   const currentParams = this.store.params;
+
+  //   this.store.load({ start, limit });
+  //   this.router.navigate(['/flights'], {
+  //     queryParams: {
+  //       ...currentParams,
+  //       start,
+  //       limit,
+  //     },
+  //   });
+  // }
 
   onReset(params: Partial<FlightParams>) {
     this.store.load(params);

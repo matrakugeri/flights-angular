@@ -18,7 +18,7 @@
 .create-flight-form {
   padding: 2.5rem;
   border-radius: 11px;
-  box-shadow: 2px 2px 2rem rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 2rem rgba(168, 115, 115, 0.3);
   width: 800px;
   margin-bottom: 3.2rem;
 }
@@ -76,6 +76,18 @@
 
 .control-form {
   font-size: 1.5rem;
-  margin: 1rem 1rem 2rem 1rem;
-  color: red;
+  margin: 0 1rem 2rem 0;
+  color: lighten(rgb(52, 123, 189), 10);
+}
+
+.reminder {
+  font-size: 1.3rem;
+  color: lighten(rgb(11, 51, 85), 10);
+  margin-top: 2rem;
+}
+
+.form-error {
+  font-size: 1.7rem;
+  color: lighten(red, 10);
+  margin-top: 2rem;
 }

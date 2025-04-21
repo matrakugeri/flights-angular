@@ -31,7 +31,7 @@
 <mat-paginator
   [length]="state.total"
   [pageSize]="state.params.limit"
-  [pageIndex]="state.params.start"
+  [pageIndex]="state.params.start / state.params.limit"
   [pageSizeOptions]="[5, 10, 25, 100]"
   (page)="onPageChange($event)"
   aria-label="Select page"
