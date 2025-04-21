@@ -1171,19 +1171,6 @@
       "airline": "Etihad Airways"
     },
     {
-      "flightNumber": "UA78C",
-      "origin": "TIA",
-      "originFullName": "Tirana",
-      "destination": "GRC",
-      "destinationFullName": "Lefkada",
-      "departureTime": "2024-5-12T17:00",
-      "arrivalTime": "2024-6-1T23:00",
-      "status": "Delayed",
-      "title": "Tirana to Lefkada",
-      "airline": "Ryan Air",
-      "id": 92
-    },
-    {
       "origin": "TAI",
       "originFullName": "Thailand",
       "destination": "BGK",
@@ -1210,30 +1197,19 @@
       "id": 94
     },
     {
-      "origin": "r",
-      "originFullName": "d",
-      "destination": "w",
-      "destinationFullName": "w",
-      "title": "d",
-      "airline": "q",
-      "status": "d",
-      "flightNumber": "d",
-      "departureTime": "2025-24-04T02:00",
-      "arrivalTime": "2025-08-04T02:00",
-      "id": 95
-    },
-    {
-      "origin": "d",
-      "originFullName": "d",
-      "destination": "d",
-      "destinationFullName": "d",
-      "title": "d",
-      "airline": "d",
-      "status": "d",
-      "flightNumber": "d",
-      "departureTime": "2025-02-04T01:00",
-      "arrivalTime": "2025-07-04T01:30",
-      "id": 96
+      "origin": "EST",
+      "originFullName": "Estonia",
+      "destination": "DEN",
+      "destinationFullName": "Denmark",
+      "title": "Estonia To Denmark",
+      "airline": "Lufthansa",
+      "flightNumber": "ZP821",
+      "status": "Cancelled",
+      "departureTime": "2025-04-22T01:30",
+      "departureDate": "2025-04-21T22:00:00.000Z",
+      "arrivalTime": "2025-04-23T01:30",
+      "arrivalDate": "2025-04-22T22:00:00.000Z",
+      "id": 98
     }
   ],
   "users": [
