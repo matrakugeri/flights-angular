@@ -46,7 +46,9 @@
     </div>
   </div>
   <div class="buttons-container">
-    <button class="btn2 btn-edit">Edit</button>
+    <a [routerLink]="['edit', flight().id]" class="btn2 btn-edit decoration"
+      >Edit</a
+    >
     <button class="btn2 secondary-btn">Delete</button>
   </div>
 </div>

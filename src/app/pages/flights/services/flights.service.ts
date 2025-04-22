@@ -11,6 +11,12 @@ export class FlightsService {
 
   constructor() {}
 
+  deleteFlight(id: number) {
+    return this.http
+      .delete<Flight>(`${environment.apiUrl}/flights/${id}`)
+      .pipe(tap((res) => console.log(res)));
+  }
+
   createFlight(flight: Omit<Flight, 'id'>) {
     return this.http.post<Flight>(`${environment.apiUrl}/flights`, flight).pipe(
       delay(2000),
