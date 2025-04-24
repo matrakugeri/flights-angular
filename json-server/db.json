@@ -1,17 +1,19 @@
 {
   "flights": [
     {
-      "id": 1,
-      "flightNumber": "FL001",
       "origin": "CDG",
       "originFullName": "Paris",
       "destination": "LAX",
       "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-21T09:00",
-      "arrivalTime": "2024-11-21T15:00",
-      "status": "Delayed",
       "title": "Paris to Los Angeles",
-      "airline": "Scandinavian Airlines"
+      "airline": "Scandinavian Airlines",
+      "flightNumber": "FL001",
+      "status": "Scheduled",
+      "departureTime": "2024-11-21T11:00",
+      "departureDate": "2024-11-21",
+      "arrivalTime": "2024-11-21T17:00",
+      "arrivalDate": "2024-11-21",
+      "id": 1
     },
     {
       "id": 2,
@@ -1210,6 +1212,21 @@
       "arrivalTime": "2025-04-23T01:30",
       "arrivalDate": "2025-04-22T22:00:00.000Z",
       "id": 98
+    },
+    {
+      "origin": "tEST",
+      "originFullName": "TTTTTT",
+      "destination": "TTTTT",
+      "destinationFullName": "TTTTTTTTTTB",
+      "title": "TT T O ER",
+      "airline": "E",
+      "flightNumber": "WXV2",
+      "status": "Delayed",
+      "departureTime": "2025-04-28T02:00",
+      "departureDate": "2025-04-27T22:00:00.000Z",
+      "arrivalTime": "2025-04-28T04:00",
+      "arrivalDate": "2025-04-27T22:00:00.000Z",
+      "id": 99
     }
   ],
   "users": [
