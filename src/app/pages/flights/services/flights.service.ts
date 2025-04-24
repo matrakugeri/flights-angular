@@ -12,9 +12,26 @@ export class FlightsService {
   constructor() {}
 
   deleteFlight(id: number) {
+    return this.http.delete<Flight>(`${environment.apiUrl}/flights/${id}`).pipe(
+      tap((res) => console.log(res)),
+      catchError((err) => throwError(() => err))
+    );
+  }
+
+  editFlight(flight: Omit<Flight, 'id'>, id: number) {
     return this.http
-      .delete<Flight>(`${environment.apiUrl}/flights/${id}`)
-      .pipe(tap((res) => console.log(res)));
+      .put<Flight>(`${environment.apiUrl}/flights/${id}`, flight)
+      .pipe(
+        tap((res) => console.log(res)),
+        catchError((err) => throwError(() => err))
+      );
+  }
+
+  getFlight(id: number) {
+    return this.http.get<Flight>(`${environment.apiUrl}/flights/${id}`).pipe(
+      tap((res) => console.log(res)),
+      catchError((err) => throwError(() => err))
+    );
   }
 
   createFlight(flight: Omit<Flight, 'id'>) {

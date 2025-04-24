@@ -5,17 +5,12 @@ import { MatTimepickerModule } from '@angular/material/timepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FlightsService } from '../../services/flights.service';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Flight } from '../../flight-model/flight.model';
-import { compareDateValidator } from '../../../../utils/validators';
+import { FlightFormComponent } from '../../../../shared/flights-form.component';
 
 @Component({
   selector: 'app-flight-create',
@@ -28,6 +23,7 @@ import { compareDateValidator } from '../../../../utils/validators';
     MatSelectModule,
     ReactiveFormsModule,
     SpinnerComponent,
+    FlightFormComponent,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './flight-create.component.html',
@@ -39,127 +35,21 @@ export class FlightCreateComponent {
   snackBar = inject(MatSnackBar);
   constructor() {}
 
-  formatTime(timeStr: string): string {
-    const time = new Date(timeStr);
-    return new Intl.DateTimeFormat('en', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).format(time);
-  }
-  formatDate(dateStr: string): string {
-    const date = new Date(dateStr);
-
-    const year = date.getFullYear();
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-
-    return `${year}-${month}-${day}`;
-  }
-
-  getBothFormatted(timeStr: string, dateStr: string): string {
-    const formattedTime = this.formatTime(timeStr);
-    const formattedDate = this.formatDate(dateStr);
-
-    const formattedBoth =
-      `${this.formatDate(dateStr)}T` + `${this.formatTime(timeStr)}`;
-
-    return formattedBoth;
-  }
-
-  form = new FormGroup(
-    {
-      origin: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      originFullName: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      destination: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      destinationFullName: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      title: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      airline: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      flightNumber: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      status: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      departureTime: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      departureDate: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      arrivalTime: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-      arrivalDate: new FormControl('', {
-        validators: [Validators.required],
-        nonNullable: true,
-      }),
-    },
-    { validators: compareDateValidator() }
-  );
-
-  onSubmit() {
-    if (this.form.invalid) return;
+  onCreate(newFlight: Omit<Flight, 'id'>) {
     this.isLoading.set(true);
-    const formValue = this.form.value;
-    const arrivalTime = this.getBothFormatted(
-      formValue.arrivalTime!,
-      formValue.arrivalDate!
-    );
-    const departureTime = this.getBothFormatted(
-      formValue.departureTime!,
-      formValue.departureDate!
-    );
-    const newFlight = {
-      ...this.form.getRawValue(),
-      departureTime: departureTime,
-      arrivalTime: arrivalTime,
-    };
-
     this.flightsService.createFlight(newFlight).subscribe({
       next: (res) => {
         this.isLoading.set(false);
-        console.log(res);
         this.snackBar.open('Flight was created succesfully', 'Message', {
           duration: 2000,
         });
       },
-      error: (err) =>
+      error: (err) => {
+        this.isLoading.set(false);
         this.snackBar.open(err.error.message, 'Message', {
           duration: 2000,
-        }),
+        });
+      },
     });
-  }
-
-  get isNotEmptyForm(): boolean {
-    const values = this.form.value;
-    return Object.values(values).some((value) => !!value?.toString().trim());
-  }
-
-  onDiscard() {
-    this.form.reset();
   }
 }
