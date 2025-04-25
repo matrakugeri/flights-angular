@@ -3,9 +3,10 @@ import { inject } from '@angular/core';
 import { Flight } from '../../flight-model/flight.model';
 import { FlightsService } from '../../services/flights.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FlightFormComponent } from '../../../../shared/flights-form.component';
 import { take } from 'rxjs';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
+import { FlightFormComponent } from '../../components/flights-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flight-edit',
@@ -18,6 +19,7 @@ export class FlightEditComponent {
   flightsService = inject(FlightsService);
   snackBar = inject(MatSnackBar);
   isLoading = signal<boolean>(false);
+  router = inject(Router);
 
   flightResponse = signal<Flight | null>(null);
 
@@ -46,12 +48,13 @@ export class FlightEditComponent {
       next: (res) => {
         this.isLoading.set(false);
         this.snackBar.open(
-          `Flight with id: ${this.id()} was edited succesfully`,
+          'Flight with id: ' + ' ' + this.id() + ' was edited succesfully',
           'Message',
           {
             duration: 2000,
           }
         );
+        this.router.navigate(['/flights']);
       },
       error: (err) => {
         this.isLoading.set(false);

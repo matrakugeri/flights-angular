@@ -10,7 +10,8 @@ import { FlightsService } from '../../services/flights.service';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Flight } from '../../flight-model/flight.model';
-import { FlightFormComponent } from '../../../../shared/flights-form.component';
+import { FlightFormComponent } from '../../components/flights-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flight-create',
@@ -33,6 +34,7 @@ export class FlightCreateComponent {
   flightsService = inject(FlightsService);
   isLoading = signal(false);
   snackBar = inject(MatSnackBar);
+  router = inject(Router);
   constructor() {}
 
   onCreate(newFlight: Omit<Flight, 'id'>) {
@@ -43,6 +45,7 @@ export class FlightCreateComponent {
         this.snackBar.open('Flight was created succesfully', 'Message', {
           duration: 2000,
         });
+        this.router.navigate(['/flights']);
       },
       error: (err) => {
         this.isLoading.set(false);

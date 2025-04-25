@@ -2,7 +2,9 @@
   <div class="card">
     <div class="card-container--1">
       <div class="flight-information-container">
-        <p class="card-paragraph flight-number">{{ flight().flightNumber }}</p>
+        <p class="card-paragraph flight-number">
+          {{ flight().flightNumber }}
+        </p>
         <p
           class="status-paragraph"
           [class]="{
@@ -49,6 +51,12 @@
     <a [routerLink]="['edit', flight().id]" class="btn2 btn-edit decoration"
       >Edit</a
     >
-    <button type="button" class="btn2 secondary-btn">Delete</button>
+    <button
+      type="button"
+      (click)="openDeleteDialog()"
+      class="btn2 secondary-btn"
+    >
+      Delete
+    </button>
   </div>
 </div>

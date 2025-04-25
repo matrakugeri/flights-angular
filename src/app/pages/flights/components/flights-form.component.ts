@@ -11,8 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTimepickerModule } from '@angular/material/timepicker';
-import { compareDateValidator } from '../utils/validators';
-import { Flight } from '../pages/flights/flight-model/flight.model';
+import { compareDateValidator } from '../../../utils/validators';
+import { Flight } from '../flight-model/flight.model';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-flights-form',
@@ -26,12 +27,7 @@ import { Flight } from '../pages/flights/flight-model/flight.model';
   ],
   providers: [provideNativeDateAdapter()],
   template: ` <section class="center">
-    <form
-      action=""
-      class="create-flight-form"
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-    >
+    <form class="create-flight-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <h2 class="primary-form-heading">
         {{ isEditMode() ? 'ADD' : 'CREATE' }} A NEW FLIGHT
       </h2>
@@ -66,7 +62,11 @@ import { Flight } from '../pages/flights/flight-model/flight.model';
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Status</mat-label>
-          <input matInput formControlName="status" />
+          <mat-select formControlName="status">
+            <mat-option value="Scheduled">Scheduled</mat-option>
+            <mat-option value="Delayed">Delayed</mat-option>
+            <mat-option value="Cancelled">Cancelled</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <h2 class="datetime-heading">SELECT DATE AND TIME</h2>
@@ -378,6 +378,9 @@ export class FlightFormComponent {
       arrivalTime: arrivalTime,
     };
     this.saveChanges.emit(newFlight);
+    if (!this.isEditMode()) {
+      this.form.reset();
+    }
   }
 
   onDiscard() {

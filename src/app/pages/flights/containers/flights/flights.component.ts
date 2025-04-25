@@ -11,6 +11,7 @@ import { FlightsService } from '../../services/flights.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { take, tap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-flights',
@@ -33,6 +34,7 @@ export default class FlightsComponent {
   router = inject(Router);
   store = inject(FlightsStore);
   flightService = inject(FlightsService);
+  snackBar = inject(MatSnackBar);
 
   queryParams$ = this.route.queryParams.pipe(
     take(1),
@@ -71,28 +73,30 @@ export default class FlightsComponent {
     });
   }
 
-  // onPageChange(event: any) {
-  //   console.log(event);
-  //   console.log(event.pageIndex, event.pageSize);
-
-  //   const start = event.pageIndex;
-  //   const limit = event.pageSize;
-  //   const currentParams = this.store.params;
-
-  //   this.store.load({ start, limit });
-  //   this.router.navigate(['/flights'], {
-  //     queryParams: {
-  //       ...currentParams,
-  //       start,
-  //       limit,
-  //     },
-  //   });
-  // }
-
   onReset(params: Partial<FlightParams>) {
     this.store.load(params);
     this.router.navigate(['/flights'], {
       queryParams: {},
     });
+  }
+
+  // onReload(id: number) {
+  //   this.flightService.deleteFlight(id).subscribe({
+  //     next: (res) => {
+  //       this.store.load({});
+  //       this.snackBar.open('Flight was successfully deleted', 'Message', {
+  //         duration: 2000,
+  //       });
+  //     },
+  //     error: (err) => {
+  //       this.snackBar.open(err.error.message, 'ERROR', {
+  //         duration: 2000,
+  //       });
+  //     },
+  //   });
+  // }
+
+  onReload(id: number) {
+    this.store.reloadFlight(id);
   }
 }

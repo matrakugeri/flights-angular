@@ -15,7 +15,10 @@
 
 <div class="card-container-box">
   @if(state.loaded) { @for(flight of state.data;track flight.id) {
-  <app-flight-card [flight]="flight"></app-flight-card>
+  <app-flight-card
+    [flight]="flight"
+    (reloadData)="onReload($event)"
+  ></app-flight-card>
   } @empty {
   <p class="error">
     No flight was found.<br />

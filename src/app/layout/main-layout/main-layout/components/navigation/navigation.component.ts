@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
   trigger,
@@ -7,6 +7,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { FlightsStore } from '../../../../../pages/flights/services/flights.store';
 
 @Component({
   selector: 'app-nav',
