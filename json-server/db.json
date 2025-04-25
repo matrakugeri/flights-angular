@@ -8,25 +8,27 @@
       "title": "Paris to Los Angeles",
       "airline": "Scandinavian Airlines",
       "flightNumber": "FL001",
-      "status": "Scheduled",
-      "departureTime": "2024-11-21T11:00",
+      "status": "Delayed",
+      "departureTime": "2024-11-21T17:30",
       "departureDate": "2024-11-21",
-      "arrivalTime": "2024-11-21T17:00",
+      "arrivalTime": "2024-11-21T23:00",
       "arrivalDate": "2024-11-21",
       "id": 1
     },
     {
-      "id": 2,
-      "flightNumber": "FL002",
       "origin": "MXP",
       "originFullName": "Milano",
       "destination": "FRA",
       "destinationFullName": "Frankfurt",
-      "departureTime": "2024-11-22T10:00",
-      "arrivalTime": "2024-11-22T16:00",
-      "status": "Delayed",
       "title": "Milano to Frankfurt",
-      "airline": "Lufthansa"
+      "airline": "Lufthansa",
+      "flightNumber": "FL002",
+      "status": "Scheduled",
+      "departureTime": "2024-11-22T15:00",
+      "departureDate": "2024-11-22",
+      "arrivalTime": "2024-11-22T20:00",
+      "arrivalDate": "2024-11-22",
+      "id": 2
     },
     {
       "id": 3,
@@ -42,19 +44,6 @@
       "airline": "Wizz Air"
     },
     {
-      "id": 4,
-      "flightNumber": "FL004",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-11-24T12:00",
-      "arrivalTime": "2024-11-24T18:00",
-      "status": "Cancelled",
-      "title": "Athens to Belgrade",
-      "airline": "United Airlines"
-    },
-    {
       "id": 5,
       "flightNumber": "FL005",
       "origin": "MXP",
@@ -66,32 +55,6 @@
       "status": "Scheduled",
       "title": "Milano to Vienna",
       "airline": "Scandinavian Airlines"
-    },
-    {
-      "id": 6,
-      "flightNumber": "FL006",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-26T14:00",
-      "arrivalTime": "2024-11-26T20:00",
-      "status": "Cancelled",
-      "title": "Milano to Los Angeles",
-      "airline": "Wizz Air"
-    },
-    {
-      "id": 7,
-      "flightNumber": "FL007",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-11-27T15:00",
-      "arrivalTime": "2024-11-27T21:00",
-      "status": "Scheduled",
-      "title": "Milano to Belgrade",
-      "airline": "Turkish Airlines"
     },
     {
       "id": 8,
@@ -107,82 +70,19 @@
       "airline": "KLM Royal Dutch"
     },
     {
-      "id": 9,
-      "flightNumber": "FL009",
       "origin": "ATH",
       "originFullName": "Athens",
       "destination": "LAX",
       "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-29T17:00",
-      "arrivalTime": "2024-11-29T23:00",
-      "status": "Cancelled",
       "title": "Athens to Los Angeles",
-      "airline": "Ryanair"
-    },
-    {
-      "id": 10,
-      "flightNumber": "FL010",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-11-30T18:00",
-      "arrivalTime": "2024-12-01T00:00",
-      "status": "Delayed",
-      "title": "Athens to New York",
-      "airline": "United Airlines"
-    },
-    {
-      "id": 11,
-      "flightNumber": "FL011",
-      "origin": "FCO",
-      "originFullName": "Rome",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-01T19:00",
-      "arrivalTime": "2024-12-02T01:00",
-      "status": "Delayed",
-      "title": "Rome to Los Angeles",
-      "airline": "Ryanair"
-    },
-    {
-      "id": 12,
-      "flightNumber": "FL012",
-      "origin": "TIA",
-      "originFullName": "Tirana",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-02T20:00",
-      "arrivalTime": "2024-12-03T02:00",
-      "status": "Delayed",
-      "title": "Tirana to Los Angeles",
-      "airline": "Alitalia"
-    },
-    {
-      "id": 13,
-      "flightNumber": "FL013",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-03T21:00",
-      "arrivalTime": "2024-12-04T03:00",
-      "status": "Cancelled",
-      "title": "Athens to Belgrade",
-      "airline": "Swiss International"
-    },
-    {
-      "id": 14,
-      "flightNumber": "FL014",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-12-04T22:00",
-      "arrivalTime": "2024-12-05T04:00",
+      "airline": "Ryanair",
+      "flightNumber": "FL009",
       "status": "Scheduled",
-      "title": "Milano to New York",
-      "airline": "Austrian Airlines"
+      "departureTime": "2024-11-29T18:00",
+      "departureDate": "2024-11-29",
+      "arrivalTime": "2024-11-29T00:00",
+      "arrivalDate": "2024-11-29",
+      "id": 9
     },
     {
       "id": 15,
@@ -198,71 +98,6 @@
       "airline": "Turkish Airlines"
     },
     {
-      "id": 16,
-      "flightNumber": "FL016",
-      "origin": "CDG",
-      "originFullName": "Paris",
-      "destination": "VIE",
-      "destinationFullName": "Vienna",
-      "departureTime": "2024-12-07T00:00",
-      "arrivalTime": "2024-12-07T06:00",
-      "status": "Scheduled",
-      "title": "Paris to Vienna",
-      "airline": "Wizz Air"
-    },
-    {
-      "id": 17,
-      "flightNumber": "FL017",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-12-08T01:00",
-      "arrivalTime": "2024-12-08T07:00",
-      "status": "Delayed",
-      "title": "Milano to New York",
-      "airline": "Swiss International"
-    },
-    {
-      "id": 18,
-      "flightNumber": "FL018",
-      "origin": "SFO",
-      "originFullName": "San Francisco",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-09T02:00",
-      "arrivalTime": "2024-12-09T08:00",
-      "status": "Delayed",
-      "title": "San Francisco to Los Angeles",
-      "airline": "Ryanair"
-    },
-    {
-      "id": 19,
-      "flightNumber": "FL019",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "ATL",
-      "destinationFullName": "Atlanta",
-      "departureTime": "2024-12-10T03:00",
-      "arrivalTime": "2024-12-10T09:00",
-      "status": "Scheduled",
-      "title": "Athens to Atlanta",
-      "airline": "American Airlines"
-    },
-    {
-      "id": 20,
-      "flightNumber": "FL020",
-      "origin": "JFK",
-      "originFullName": "New York",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-11T04:00",
-      "arrivalTime": "2024-12-11T10:00",
-      "status": "Scheduled",
-      "title": "New York to Belgrade",
-      "airline": "Alitalia"
-    },
-    {
       "id": 21,
       "flightNumber": "FL021",
       "origin": "FCO",
@@ -274,19 +109,6 @@
       "status": "Scheduled",
       "title": "Rome to Los Angeles",
       "airline": "Turkish Airlines"
-    },
-    {
-      "id": 22,
-      "flightNumber": "FL022",
-      "origin": "JFK",
-      "originFullName": "New York",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-13T06:00",
-      "arrivalTime": "2024-12-13T12:00",
-      "status": "Delayed",
-      "title": "New York to Belgrade",
-      "airline": "Etihad Airways"
     },
     {
       "id": 23,
@@ -302,56 +124,19 @@
       "airline": "Delta Air Lines"
     },
     {
-      "id": 24,
-      "flightNumber": "FL024",
-      "origin": "JFK",
-      "originFullName": "New York",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-12-15T08:00",
-      "arrivalTime": "2024-12-15T14:00",
-      "status": "Delayed",
-      "title": "New York to New York",
-      "airline": "Turkish Airlines"
-    },
-    {
-      "id": 25,
-      "flightNumber": "FL025",
-      "origin": "ORD",
-      "originFullName": "Chicago",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-16T09:00",
-      "arrivalTime": "2024-12-16T15:00",
-      "status": "Scheduled",
-      "title": "Chicago to Belgrade",
-      "airline": "Etihad Airways"
-    },
-    {
-      "id": 26,
-      "flightNumber": "FL026",
       "origin": "ATH",
       "originFullName": "Athens",
       "destination": "VIE",
       "destinationFullName": "Vienna",
-      "departureTime": "2024-12-17T10:00",
-      "arrivalTime": "2024-12-17T16:00",
-      "status": "Scheduled",
       "title": "Athens to Vienna",
-      "airline": "Alitalia"
-    },
-    {
-      "id": 27,
-      "flightNumber": "FL027",
-      "origin": "JFK",
-      "originFullName": "New York",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-18T11:00",
-      "arrivalTime": "2024-12-18T17:00",
-      "status": "Delayed",
-      "title": "New York to Belgrade",
-      "airline": "Turkish Airlines"
+      "airline": "Alitalia",
+      "flightNumber": "FL026",
+      "status": "Scheduled",
+      "departureTime": "2024-12-17T11:00",
+      "departureDate": "2024-12-17",
+      "arrivalTime": "2024-12-17T17:00",
+      "arrivalDate": "2024-12-17",
+      "id": 26
     },
     {
       "id": 28,
@@ -393,19 +178,6 @@
       "airline": "Emirates"
     },
     {
-      "id": 31,
-      "flightNumber": "FL031",
-      "origin": "TIA",
-      "originFullName": "Tirana",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-22T15:00",
-      "arrivalTime": "2024-11-22T21:00",
-      "status": "Delayed",
-      "title": "Tirana to Los Angeles",
-      "airline": "Emirates"
-    },
-    {
       "id": 32,
       "flightNumber": "FL032",
       "origin": "ORD",
@@ -430,19 +202,6 @@
       "status": "Scheduled",
       "title": "Rome to Los Angeles",
       "airline": "Qatar Airways"
-    },
-    {
-      "id": 34,
-      "flightNumber": "FL034",
-      "origin": "ORD",
-      "originFullName": "Chicago",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-25T18:00",
-      "arrivalTime": "2024-11-26T00:00",
-      "status": "Cancelled",
-      "title": "Chicago to Los Angeles",
-      "airline": "Air France"
     },
     {
       "id": 35,
@@ -484,45 +243,6 @@
       "airline": "Lufthansa"
     },
     {
-      "id": 38,
-      "flightNumber": "FL038",
-      "origin": "FCO",
-      "originFullName": "Rome",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-11-29T22:00",
-      "arrivalTime": "2024-11-30T04:00",
-      "status": "Scheduled",
-      "title": "Rome to New York",
-      "airline": "British Airways"
-    },
-    {
-      "id": 39,
-      "flightNumber": "FL039",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-11-30T23:00",
-      "arrivalTime": "2024-12-01T05:00",
-      "status": "Scheduled",
-      "title": "Milano to New York",
-      "airline": "Lufthansa"
-    },
-    {
-      "id": 40,
-      "flightNumber": "FL040",
-      "origin": "MXP",
-      "originFullName": "Milano",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-02T00:00",
-      "arrivalTime": "2024-12-02T06:00",
-      "status": "Cancelled",
-      "title": "Milano to Belgrade",
-      "airline": "Etihad Airways"
-    },
-    {
       "id": 41,
       "flightNumber": "FL041",
       "origin": "MXP",
@@ -534,19 +254,6 @@
       "status": "Delayed",
       "title": "Milano to Frankfurt",
       "airline": "Swiss International"
-    },
-    {
-      "id": 42,
-      "flightNumber": "FL042",
-      "origin": "FCO",
-      "originFullName": "Rome",
-      "destination": "SRB",
-      "destinationFullName": "Belgrade",
-      "departureTime": "2024-12-04T02:00",
-      "arrivalTime": "2024-12-04T08:00",
-      "status": "Cancelled",
-      "title": "Rome to Belgrade",
-      "airline": "Wizz Air"
     },
     {
       "id": 43,
@@ -679,17 +386,19 @@
       "airline": "Air France"
     },
     {
-      "id": 53,
-      "flightNumber": "FL053",
       "origin": "FCO",
       "originFullName": "Rome",
       "destination": "VIE",
       "destinationFullName": "Vienna",
-      "departureTime": "2024-12-15T13:00",
-      "arrivalTime": "2024-12-15T19:00",
-      "status": "Cancelled",
       "title": "Rome to Vienna",
-      "airline": "Air France"
+      "airline": "Air France",
+      "flightNumber": "FL053",
+      "status": "Cancelled",
+      "departureTime": "2024-12-15T14:00",
+      "departureDate": "2024-12-15",
+      "arrivalTime": "2024-12-15T20:00",
+      "arrivalDate": "2024-12-15",
+      "id": 53
     },
     {
       "id": 54,
@@ -705,19 +414,6 @@
       "airline": "Wizz Air"
     },
     {
-      "id": 55,
-      "flightNumber": "FL055",
-      "origin": "TIA",
-      "originFullName": "Tirana",
-      "destination": "VIE",
-      "destinationFullName": "Vienna",
-      "departureTime": "2024-12-17T15:00",
-      "arrivalTime": "2024-12-17T21:00",
-      "status": "Cancelled",
-      "title": "Tirana to Vienna",
-      "airline": "Alitalia"
-    },
-    {
       "id": 56,
       "flightNumber": "FL056",
       "origin": "JFK",
@@ -729,45 +425,6 @@
       "status": "Delayed",
       "title": "New York to Los Angeles",
       "airline": "Southwest Airlines"
-    },
-    {
-      "id": 57,
-      "flightNumber": "FL057",
-      "origin": "SFO",
-      "originFullName": "San Francisco",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-19T17:00",
-      "arrivalTime": "2024-12-19T23:00",
-      "status": "Delayed",
-      "title": "San Francisco to Los Angeles",
-      "airline": "Emirates"
-    },
-    {
-      "id": 58,
-      "flightNumber": "FL058",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "FRA",
-      "destinationFullName": "Frankfurt",
-      "departureTime": "2024-12-20T18:00",
-      "arrivalTime": "2024-12-21T00:00",
-      "status": "Delayed",
-      "title": "Athens to Frankfurt",
-      "airline": "Air France"
-    },
-    {
-      "id": 59,
-      "flightNumber": "FL059",
-      "origin": "TIA",
-      "originFullName": "Tirana",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-12-21T19:00",
-      "arrivalTime": "2024-12-22T01:00",
-      "status": "Delayed",
-      "title": "Tirana to New York",
-      "airline": "Qatar Airways"
     },
     {
       "id": 60,
@@ -1004,19 +661,6 @@
       "airline": "Ryanair"
     },
     {
-      "id": 78,
-      "flightNumber": "FL078",
-      "origin": "FCO",
-      "originFullName": "Rome",
-      "destination": "USA",
-      "destinationFullName": "New York",
-      "departureTime": "2024-12-11T14:00",
-      "arrivalTime": "2024-12-11T20:00",
-      "status": "Scheduled",
-      "title": "Rome to New York",
-      "airline": "Scandinavian Airlines"
-    },
-    {
       "id": 79,
       "flightNumber": "FL079",
       "origin": "ORD",
@@ -1134,19 +778,6 @@
       "airline": "Austrian Airlines"
     },
     {
-      "id": 88,
-      "flightNumber": "FL088",
-      "origin": "SFO",
-      "originFullName": "San Francisco",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-22T00:00",
-      "arrivalTime": "2024-12-22T06:00",
-      "status": "Scheduled",
-      "title": "San Francisco to Los Angeles",
-      "airline": "Delta Air Lines"
-    },
-    {
       "id": 89,
       "flightNumber": "FL089",
       "origin": "ORD",
@@ -1214,19 +845,34 @@
       "id": 98
     },
     {
-      "origin": "tEST",
-      "originFullName": "TTTTTT",
-      "destination": "TTTTT",
-      "destinationFullName": "TTTTTTTTTTB",
-      "title": "TT T O ER",
-      "airline": "E",
-      "flightNumber": "WXV2",
-      "status": "Delayed",
-      "departureTime": "2025-04-28T02:00",
-      "departureDate": "2025-04-27T22:00:00.000Z",
-      "arrivalTime": "2025-04-28T04:00",
-      "arrivalDate": "2025-04-27T22:00:00.000Z",
+      "origin": "TIA",
+      "originFullName": "Tirana",
+      "destination": "TAI",
+      "destinationFullName": "Bangkok",
+      "title": "Tirana to Bangkok",
+      "airline": "Scandinavian Airlines",
+      "flightNumber": "FP219",
+      "status": "Cancelled",
+      "departureTime": "2025-04-22T02:00",
+      "departureDate": "2025-04-21T22:00:00.000Z",
+      "arrivalTime": "2025-04-22T05:00",
+      "arrivalDate": "2025-04-21T22:00:00.000Z",
       "id": 99
+    },
+    {
+      "origin": "AFR",
+      "originFullName": "Africa",
+      "destination": "AUS",
+      "destinationFullName": "Australia",
+      "title": "Africa to Australia",
+      "airline": "Wizz Air",
+      "flightNumber": "WPXO0",
+      "status": "Delayed",
+      "departureTime": "2025-04-30T02:00",
+      "departureDate": "2025-04-29T22:00:00.000Z",
+      "arrivalTime": "2025-04-30T06:00",
+      "arrivalDate": "2025-04-29T22:00:00.000Z",
+      "id": 100
     }
   ],
   "users": [
