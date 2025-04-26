@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     const user = localStorage.getItem('user');
     if (user) {
       const gotUser = JSON.parse(user);
-      this.authStore.setToken(gotUser.token);
+      this.authStore.setState(gotUser);
     }
   }
 }

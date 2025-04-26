@@ -41,13 +41,18 @@
       </div>
     </div>
     <div class="card-container--2">
-      <div>
+      <div class="card-inner-2">
+        <img
+          src="assets/airplane-flight-svgrepo-com.png"
+          alt="Airplane"
+          class="flight-img2"
+        />
         <h1 class="second-container-big-heading">{{ flight().title }}</h1>
         <h2 class="second-container-heading">{{ flight().airline }}</h2>
       </div>
     </div>
   </div>
-  <div class="buttons-container">
+  <div *role="Role.Admin" class="buttons-container">
     <a [routerLink]="['edit', flight().id]" class="btn2 btn-edit decoration"
       >Edit</a
     >

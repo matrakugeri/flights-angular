@@ -12,6 +12,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { take, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RoleDirective } from '../../../../shared/role.directive';
+import { Role } from '../../../../shared/enums';
 
 @Component({
   selector: 'app-flights',
@@ -23,6 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatPaginatorModule,
     NgIf,
     RouterLink,
+    RoleDirective,
   ],
   standalone: true,
   templateUrl: './flights.component.html',
@@ -35,6 +38,7 @@ export default class FlightsComponent {
   store = inject(FlightsStore);
   flightService = inject(FlightsService);
   snackBar = inject(MatSnackBar);
+  Role = Role;
 
   queryParams$ = this.route.queryParams.pipe(
     take(1),

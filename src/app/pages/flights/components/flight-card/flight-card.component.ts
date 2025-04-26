@@ -6,10 +6,13 @@ import { FlightsService } from '../../services/flights.service';
 import { DeleteDialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Role } from '../../../../shared/enums';
+import { RoleDirective } from '../../../../shared/role.directive';
 
 @Component({
   selector: 'app-flight-card',
-  imports: [DatePipe, RouterLink],
+  standalone: true,
+  imports: [DatePipe, RouterLink, RoleDirective],
   templateUrl: './flight-card.component.html',
   styleUrl: './flight-card.component.scss',
 })
@@ -18,7 +21,7 @@ export class FlightCardComponent {
   flightsService = inject(FlightsService);
   snackBar = inject(MatSnackBar);
   reloadData = output<number>();
-
+  Role = Role;
   readonly dialog = inject(MatDialog);
 
   openDeleteDialog(): void {

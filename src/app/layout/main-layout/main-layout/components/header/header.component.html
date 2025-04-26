@@ -4,6 +4,11 @@
       >menu</mat-icon
     >
     <h1>FLIGHTS</h1>
-    <i (click)="onLogout()" class="material-icons header-icon">person</i>
+    <i [matMenuTriggerFor]="menu" class="material-icons header-icon">person</i>
   </div>
 </header>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item disabled>{{ user()?.role }}</button>
+  <button mat-menu-item disabled>{{ user()?.email }}</button>
+  <button (click)="onLogout()" mat-menu-item>Logout</button>
+</mat-menu>

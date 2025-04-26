@@ -7,7 +7,7 @@
   (resetForm)="onReset($event)"
 ></app-searching-form>
 
-<div class="create-flight-container">
+<div *role="Role.Admin" class="create-flight-container">
   <a [routerLink]="['create']" class="btn2 btn-edit btn-flex">
     <i class="material-icons add">add</i> Create
   </a>
