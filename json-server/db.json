@@ -971,6 +971,12 @@
       "email": "admin@example.com",
       "password": "$2b$10$kjBwd5S98Hg8Td1C/24CGOGXhdNnaM/5MT.wSEbYFodF.wbT.jYZe",
       "role": "admin"
+    },
+    {
+      "id": 1745605203981,
+      "email": "newuser@gmail.com",
+      "password": "$2b$10$AYek86zVHzHErDZsIB2Ef.DySi3XyMhLV0NiT3AUjCIKeFW8U/Gh6",
+      "role": "user"
     }
   ]
 }
