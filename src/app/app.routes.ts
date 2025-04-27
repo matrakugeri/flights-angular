@@ -10,7 +10,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [nonAuthGuard],
+    canMatch: [nonAuthGuard],
     loadComponent: () =>
       import('./pages/auth/containers/login/login.component').then(
         (m) => m.LoginComponent
@@ -25,7 +25,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'flights',
-        canActivate: [authGuard],
+        canMatch: [authGuard],
         loadChildren: () =>
           import('./pages/flights/flights.routes').then((m) => m.FLIGHT_ROUTES),
       },

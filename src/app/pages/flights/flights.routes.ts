@@ -1,4 +1,5 @@
-import { Routes, withComponentInputBinding } from '@angular/router';
+import { Routes } from '@angular/router';
+import { roleGuard } from '../../core/guards/role.guard';
 
 export const FLIGHT_ROUTES: Routes = [
   {
@@ -11,6 +12,7 @@ export const FLIGHT_ROUTES: Routes = [
       import('./containers/flight-create/flight-create.component').then(
         (m) => m.FlightCreateComponent
       ),
+    canMatch: [roleGuard],
   },
   {
     path: 'edit/:id',
@@ -18,5 +20,6 @@ export const FLIGHT_ROUTES: Routes = [
       import('./containers/flight-edit/flight-edit.component').then(
         (m) => m.FlightEditComponent
       ),
+    canMatch: [roleGuard],
   },
 ];
