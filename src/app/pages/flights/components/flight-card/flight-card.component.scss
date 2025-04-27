@@ -127,9 +127,10 @@
 .second-container-heading {
   background-image: linear-gradient(
     to right,
-    $light-yellow-color,
-    $dark-yellow-color
+    rgb(156, 184, 55),
+    darken(rgb(156, 184, 55), 10)
   );
+  font-weight: 600;
   color: transparent;
   font-size: 1.8rem;
   text-align: center;
@@ -141,11 +142,7 @@
 }
 
 .second-container-big-heading {
-  background-image: linear-gradient(
-    to right,
-    rgba(63, 59, 59, 0.2),
-    rgba(49, 25, 25, 0.2)
-  );
+  background-image: linear-gradient(to right, #bba4d4, darken(#bba4d4, 25));
   border-bottom: 1px solid #aaa;
   text-transform: uppercase;
   color: transparent;
