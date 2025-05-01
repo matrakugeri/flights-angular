@@ -41,3 +41,8 @@ export function compareDateValidator(): ValidatorFn {
     return null;
   };
 }
+
+export function containsBigLetter(control: AbstractControl) {
+  const hasBigLetter = /[A-Z]/.test(control.value);
+  return hasBigLetter ? null : { noBigLetter: true };
+}
