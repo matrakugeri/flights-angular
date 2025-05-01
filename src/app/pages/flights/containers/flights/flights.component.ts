@@ -44,6 +44,7 @@ export default class FlightsComponent {
     take(1),
     tap((params) => {
       console.warn(params);
+      console.log(this.store.params);
       this.store.load(params);
     })
   );
@@ -84,23 +85,7 @@ export default class FlightsComponent {
     });
   }
 
-  // onReload(id: number) {
-  //   this.flightService.deleteFlight(id).subscribe({
-  //     next: (res) => {
-  //       this.store.load({});
-  //       this.snackBar.open('Flight was successfully deleted', 'Message', {
-  //         duration: 2000,
-  //       });
-  //     },
-  //     error: (err) => {
-  //       this.snackBar.open(err.error.message, 'ERROR', {
-  //         duration: 2000,
-  //       });
-  //     },
-  //   });
-  // }
-
   onReload(id: number) {
-    this.store.reloadFlight(id);
+    this.store.deleteFlight(id);
   }
 }

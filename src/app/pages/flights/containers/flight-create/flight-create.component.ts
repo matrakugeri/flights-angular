@@ -35,6 +35,7 @@ export class FlightCreateComponent {
   isLoading = signal(false);
   snackBar = inject(MatSnackBar);
   router = inject(Router);
+
   constructor() {}
 
   onCreate(newFlight: Omit<Flight, 'id'>) {

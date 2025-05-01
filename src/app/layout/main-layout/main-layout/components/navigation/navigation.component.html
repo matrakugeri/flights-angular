@@ -3,14 +3,14 @@
   [@expandCollapse]="isExpanded() ? 'expanded' : 'collapsed'"
 >
   <ul class="navigation-list">
-    <!-- <li class="navigation-list-item">
-      <a routerLinkActive="active" [routerLink]="['/flights']"
-        ><i class="material-icons icon">dashboard</i>Dashboard</a
-      >
-    </li> -->
     <li class="navigation-list-item">
       <a [routerLink]="['/flights']" routerLinkActive="active"
         ><i class="material-icons icon">flight_takeoff</i> Flights</a
+      >
+    </li>
+    <li *role="Role.Admin" class="navigation-list-item">
+      <a routerLinkActive="active" [routerLink]="['/users']"
+        ><i class="material-icons icon">people</i>Users</a
       >
     </li>
   </ul>

@@ -13,7 +13,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { compareDateValidator } from '../../../utils/validators';
 import { Flight } from '../flight-model/flight.model';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-flights-form',
@@ -345,9 +344,9 @@ export class FlightFormComponent {
             airline: this.flightValues()?.airline,
             status: this.flightValues()?.status,
             departureDate: this.flightValues()?.departureTime.split('T')[0],
-            departureTime: this.flightValues()?.departureTime + ':00.000Z',
+            departureTime: this.flightValues()?.departureTime + ':00.000',
             arrivalDate: this.flightValues()?.arrivalTime.split('T')[0],
-            arrivalTime: this.flightValues()?.arrivalTime + ':00.000Z',
+            arrivalTime: this.flightValues()?.arrivalTime + ':00.000',
             flightNumber: this.flightValues()?.flightNumber,
           });
           console.log(this.form.value);

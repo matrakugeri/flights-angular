@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
   trigger,
@@ -7,12 +7,13 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { FlightsStore } from '../../../../../pages/flights/services/flights.store';
+import { RoleDirective } from '../../../../../shared/role.directive';
+import { Role } from '../../../../../shared/enums';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, RoleDirective],
   animations: [
     trigger('expandCollapse', [
       state(
@@ -39,6 +40,7 @@ import { FlightsStore } from '../../../../../pages/flights/services/flights.stor
 })
 export class NavigationComponent {
   isExpanded = input.required();
+  Role = Role;
 
   onAnimate() {
     this.isExpanded() ? 'collapsed' : 'expanded';

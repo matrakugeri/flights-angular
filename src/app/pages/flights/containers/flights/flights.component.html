@@ -1,6 +1,6 @@
-<ng-container *ngIf="queryParams$ | async"></ng-container>
+<!-- <ng-container *ngIf="queryParams$ | async"></ng-container> -->
 
-@if(store.state$ | async; as state) {
+@if(queryParams$ | async){ @if(store.state$ | async; as state) {
 <app-searching-form
   [params]="state.params"
   (formValues)="getFlights($event)"
@@ -40,7 +40,7 @@
   aria-label="Select page"
 >
 </mat-paginator>
-} }
+} } }
 
 <!-- <ng-container *ngIf="store.state$ | async as state">
   <app-searching-form
