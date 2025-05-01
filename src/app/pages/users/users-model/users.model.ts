@@ -21,7 +21,7 @@ export interface UserParams {
 export interface UsersState {
   data: User[];
   total: number;
-  isLoading: boolean;
+  loading: boolean;
   error: string | null;
   loaded: boolean;
   params: UserParams;
