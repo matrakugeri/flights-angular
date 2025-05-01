@@ -1,23 +1,22 @@
 <section class="center">
-  <form
-    #form="ngForm"
-    (ngSubmit)="onSubmit(form)"
-    class="form-container users-form"
-  >
+  <form (ngSubmit)="onSubmit()" class="form-container users-form">
     <h2 class="users-heading">SEARCH USERS</h2>
     <div class="users-form-container">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput ngModel name="firstName" required />
+        <input matInput [(ngModel)]="enteredFirstName" name="firstName" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput ngModel name="lastName" required />
+        <input matInput [(ngModel)]="enteredLastName" name="lastName" />
       </mat-form-field>
     </div>
     <div class="center-button-container">
-      <button type="submit" mat-raised-button [disabled]="form.invalid">
+      <button type="submit" mat-raised-button [disabled]="!isEmptyForm()">
         Search
+      </button>
+      <button type="button" class="btn2 btn-reset-2" (click)="onReset()">
+        Reset
       </button>
     </div>
   </form>
