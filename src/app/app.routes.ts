@@ -29,6 +29,12 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./pages/flights/flights.routes').then((m) => m.FLIGHT_ROUTES),
       },
+      {
+        path: 'users',
+        loadComponent: () =>
+          import('./pages/users/users.component').then((m) => m.UsersComponent),
+        canMatch: [authGuard],
+      },
     ],
   },
   {
