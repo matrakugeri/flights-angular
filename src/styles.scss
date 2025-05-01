@@ -128,11 +128,6 @@ button {
   }
 }
 
-// .not-allowed {
-//   cursor: not-allowed;
-//   opacity: 70%;
-// }
-
 .add {
   font-size: 2.2rem;
 }
@@ -157,4 +152,30 @@ button {
   box-shadow: 2px 2px 2rem rgba(168, 115, 115, 0.3);
   width: 800px;
   margin-bottom: 3.2rem;
+}
+
+.mat-mdc-table {
+  box-shadow: 2px 2px 3rem rgba(70, 62, 62, 0.3);
+}
+
+.btn-reset-2 {
+  width: 150px;
+  height: 50px;
+  font-size: 1.7rem;
+  border: 1px solid red;
+  background-color: #fff;
+  transition: all 0.4s;
+  box-shadow: 1px 2px 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 32px;
+  text-transform: capitalize;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-3px);
+    background-color: darken(#fff, 10);
+  }
+
+  &:active:not(:disabled) {
+    box-shadow: 1px 2px 1rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
 }
