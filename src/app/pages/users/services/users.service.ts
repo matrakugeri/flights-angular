@@ -1,12 +1,8 @@
-import {
-  HttpClient,
-  HttpParams,
-  HttpRequest,
-  httpResource,
-} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { catchError, tap, throwError } from 'rxjs';
+import { catchError, delay, tap, throwError } from 'rxjs';
+import { UsersResponse } from '../users-model/users.model';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
@@ -15,10 +11,11 @@ export class UsersService {
 
   getUsers(params: any) {
     return this.http
-      .get(`${environment.apiUrl}/users`, {
+      .get<UsersResponse>(`${environment.apiUrl}/users`, {
         params: this.getParams(params),
       })
       .pipe(
+        delay(300),
         tap((res) => console.log(res)),
         catchError((err) => throwError(() => err))
       );
