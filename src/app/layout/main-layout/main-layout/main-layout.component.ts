@@ -3,7 +3,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HeaderComponent } from './components/header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { FlightsStore } from '../../../pages/flights/services/flights.store';
 
 @Component({
   selector: 'app-main-layout',
