@@ -80,7 +80,7 @@
       "status": "Scheduled",
       "departureTime": "2024-11-29T18:00",
       "departureDate": "2024-11-29",
-      "arrivalTime": "2024-11-29T00:00",
+      "arrivalTime": "2024-11-29T21:00",
       "arrivalDate": "2024-11-29",
       "id": 9
     },
@@ -122,21 +122,6 @@
       "status": "Delayed",
       "title": "Milano to New York",
       "airline": "Delta Air Lines"
-    },
-    {
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "VIE",
-      "destinationFullName": "Vienna",
-      "title": "Athens to Vienna",
-      "airline": "Alitalia",
-      "flightNumber": "FL026",
-      "status": "Scheduled",
-      "departureTime": "2024-12-17T11:00",
-      "departureDate": "2024-12-17",
-      "arrivalTime": "2024-12-17T17:00",
-      "arrivalDate": "2024-12-17",
-      "id": 26
     },
     {
       "id": 28,
@@ -877,106 +862,76 @@
   ],
   "users": [
     {
-      "id": 1743782843228,
-      "email": "qwerty@gmail.com",
-      "password": "$2b$10$qz0knvfS2nw0NJaxfjNxt.o9unj940WXS5btWVNbAelKMzjyOn8ce",
-      "role": "user"
-    },
-    {
-      "id": 1743786813639,
-      "email": "tester@gmal.com",
-      "password": "$2b$10$n9uVVmruPWrEd8FrxEwbhuIcymglqiATTFvExHXlGuvYWte4jLfxS",
-      "role": "user"
-    },
-    {
-      "id": 1743787283780,
-      "email": "welcomeback@gmail.com",
-      "password": "$2b$10$p5dpuE/tGU2n3QwbCXhOm.LrSWeljXbL9LXckinLX.ryKjesZVY3e",
-      "role": "user"
-    },
-    {
-      "id": 1743800394606,
-      "email": "qwer@gmail.com",
-      "password": "$2b$10$S1KelXo42tIzEDmlCNx/.OVTwC6Uc9Y.QoaBvodMcsZCTIqwMchy.",
-      "role": "user"
-    },
-    {
-      "id": 1743800430260,
-      "email": "adadadadada@gmail.com",
-      "password": "$2b$10$T9uwQgo48KVaBQ0tZ90r.eyAbePE4s99TzkD4Sywce407cBv0vcVu",
-      "role": "user"
-    },
-    {
-      "id": 1743800788870,
-      "email": "LMAOAOA@GMAIL.COM",
-      "password": "$2b$10$MX2g3SiSe/pL9eQZHaFNC.Hk6vF3o2yqZJUAWUbUDdEBTFohiAaDG",
-      "role": "user"
-    },
-    {
-      "id": 1743936930257,
-      "email": "user2@gmail.com",
-      "password": "$2b$10$gtoRoIdRdgFaeWJkk3p7Eexz37gxDlDa6QTBE.StyQxngU/NSBrda",
-      "role": "user"
-    },
-    {
-      "id": 1743937587770,
-      "email": "user3@gmail.com",
-      "password": "$2b$10$oRGnmE1Lj9YQKBSAQyDR2.ujFzxMHnLwZqT4A9L8sajqA25lhENR2",
-      "role": "user"
-    },
-    {
-      "id": 1743938232829,
-      "email": "user21@gmail.com",
-      "password": "$2b$10$U0j2/PmNApC/1IAXy8BAY.Rte/P3K7k7anBukW38gbPkwgL1DAb9u",
-      "role": "user"
-    },
-    {
-      "id": 1743938392724,
-      "email": "myuser@gmail.com",
-      "password": "$2b$10$yzEb4vuE8BRZGUu0VlgPL.05pkmj5A72GN4.uq/O.dVwerpzMdLzG",
-      "role": "user"
-    },
-    {
-      "id": 1743938438459,
-      "email": "myuser2@gmail.com",
-      "password": "$2b$10$s4Jpjxdy5MudI00Dl4m8P.dTAp81OQeBpPjeTpbO6dI91Icw1SbfS",
-      "role": "user"
-    },
-    {
-      "id": 1743970188407,
-      "email": "example@gmail.com",
-      "password": "$2b$10$7HiXp0oXfOXbeim.SvRONOFucwsqKDfD7HXvAmnQKhJ5FmmoaQVO6",
-      "role": "user"
-    },
-    {
-      "id": 1743971331764,
-      "email": "myuse32r@gmail.com",
-      "password": "$2b$10$63zTRtn.dr8g.4JDUPDhC.A3kbtlvqV.QvjgGJy44uq3Ts23NEZF.",
-      "role": "user"
-    },
-    {
-      "id": 1744284716148,
-      "email": "geri@gmail.com",
-      "password": "$2b$10$HFNF5G63/TJEmQU3CwUG9e/W/QF8/an2XjcHX01j4B2fc.qsbJ922",
-      "role": "user"
-    },
-    {
-      "id": 1744821778041,
-      "email": "myuserw@gmail.com",
-      "password": "$2b$10$aduF5mYmLh.IuQnDY6qLLuB8U9ipWUK4lYBFZndGgYPoHJNjh8N0O",
-      "role": "user"
-    },
-    {
       "id": 1745094940521,
       "email": "admin@example.com",
       "password": "$2b$10$kjBwd5S98Hg8Td1C/24CGOGXhdNnaM/5MT.wSEbYFodF.wbT.jYZe",
-      "role": "admin"
+      "role": "admin",
+      "firstName": "admin",
+      "lastName": "manager"
     },
     {
       "id": 1745605203981,
       "email": "newuser@gmail.com",
       "password": "$2b$10$AYek86zVHzHErDZsIB2Ef.DySi3XyMhLV0NiT3AUjCIKeFW8U/Gh6",
-      "role": "user"
+      "role": "user",
+      "firstName": "newuser",
+      "lastName": "example"
+    },
+    {
+      "id": 1745787842455,
+      "email": "user4@example.com",
+      "password": "$2b$10$E2vfs7cM.n.3Zfq2blhKguDwD0JoSpUwFKcpRKaTgh3h/idk2BAUi",
+      "role": "user",
+      "firstName": "test",
+      "lastName": "user"
+    },
+    {
+      "id": 1745840958593,
+      "email": "test@example.com",
+      "password": "$2b$10$5RmufOVKu/PPkNuWAVXs0.0dzSCVIy.moa29z9KMQ2Vdz5n.ERJp2",
+      "role": "user",
+      "firstName": "Example",
+      "lastName": "Test"
+    },
+    {
+      "id": 1746000000001,
+      "email": "john.doe@example.com",
+      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "role": "user",
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": 1746000000002,
+      "email": "jane.smith@example.com",
+      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "role": "user",
+      "firstName": "Jane",
+      "lastName": "Smith"
+    },
+    {
+      "id": 1746000000003,
+      "email": "michael.brown@example.com",
+      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "role": "user",
+      "firstName": "Michael",
+      "lastName": "Brown"
+    },
+    {
+      "id": 1746000000004,
+      "email": "emily.johnson@example.com",
+      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "role": "user",
+      "firstName": "Emily",
+      "lastName": "Johnson"
+    },
+    {
+      "id": 1746000000005,
+      "email": "david.wilson@example.com",
+      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "role": "user",
+      "firstName": "David",
+      "lastName": "Wilson"
     }
   ]
 }
