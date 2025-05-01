@@ -39,11 +39,18 @@ export class AuthService {
       );
   }
 
-  register(email: string, password: string) {
+  register(data: {
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+  }) {
     return this.http
       .post<User>(`${environment.apiUrl}/auth/register`, {
-        email: email,
-        password: password,
+        email: data.email,
+        password: data.password,
+        firstName: data.firstName,
+        lastName: data.lastName,
       })
       .pipe(
         delay(1000),

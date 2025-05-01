@@ -7,4 +7,6 @@ export interface UserDetails {
   email: string;
   id: number;
   role: 'admin' | 'user';
+  firstName: string;
+  lastName: string;
 }
