@@ -102,7 +102,7 @@ export class FlightsStore extends ComponentStore<FlightsState> {
     )
   );
 
-  reloadFlight = this.effect((id: Observable<number>) => {
+  deleteFlight = this.effect((id: Observable<number>) => {
     return id.pipe(
       tap(() => {
         this.patchState({ loading: true });
