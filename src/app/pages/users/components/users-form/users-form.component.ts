@@ -28,7 +28,31 @@ export class UsersFormComponent {
     lastName: string | null;
   }>();
 
-  onSubmit(form: NgForm) {
-    this.enteredValues.emit(form.form.value);
+  resettedValues = output<{
+    firstName: string | null;
+    lastName: string | null;
+  }>();
+  enteredFirstName = null;
+  enteredLastName = null;
+
+  onSubmit() {
+    const User = {
+      firstName: this.enteredFirstName || null,
+      lastName: this.enteredLastName || null,
+    };
+    this.enteredValues.emit(User);
+  }
+
+  isEmptyForm() {
+    return !!this.enteredFirstName || !!this.enteredLastName;
+  }
+
+  onReset() {
+    this.enteredFirstName = null;
+    this.enteredLastName = null;
+    this.resettedValues.emit({
+      firstName: this.enteredFirstName,
+      lastName: this.enteredLastName,
+    });
   }
 }
