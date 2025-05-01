@@ -38,9 +38,10 @@ body {
 }
 
 .control-error {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: red;
-  margin-bottom: 1.2rem;
+  position: absolute;
+  bottom: -18px;
 }
 
 .valid {
@@ -149,4 +150,11 @@ button {
 .mat-mdc-menu-content,
 .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
   font-size: 1.4rem !important;
+}
+.form-container {
+  padding: 2.5rem;
+  border-radius: 11px;
+  box-shadow: 2px 2px 2rem rgba(168, 115, 115, 0.3);
+  width: 800px;
+  margin-bottom: 3.2rem;
 }
