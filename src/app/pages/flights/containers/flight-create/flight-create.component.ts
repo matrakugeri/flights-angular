@@ -28,7 +28,7 @@ import { Router } from '@angular/router';
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './flight-create.component.html',
-  styleUrl: './flight-create.component.scss',
+  styles: ``,
 })
 export class FlightCreateComponent {
   flightsService = inject(FlightsService);

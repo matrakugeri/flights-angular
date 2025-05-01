@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UsersFormComponent } from './components/users-form/users-form.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { UsersStore } from './services/users.signalStore';
@@ -16,7 +16,7 @@ import { AsyncPipe } from '@angular/common';
     AsyncPipe,
   ],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  styles: ``,
 })
 export class UsersComponent {
   usersStore = inject(UsersStore);

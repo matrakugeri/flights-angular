@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   selector: 'app-flight-edit',
   imports: [FlightFormComponent, SpinnerComponent],
   templateUrl: './flight-edit.component.html',
-  styleUrl: './flight-edit.component.scss',
+  styles: ``,
 })
 export class FlightEditComponent {
   id = input.required<number>();

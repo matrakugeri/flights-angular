@@ -16,22 +16,3 @@
 
   } }
 </div>
-
-<!-- @if(queryParams$ | async){}
-<div class="users-container">
-  <app-users-form
-    (enteredValues)="getUsers($event)"
-    (resettedValues)="onReset($event)"
-  ></app-users-form>
-
-  @if(usersStore.loading()) {
-  <loading-spinner></loading-spinner>
-  } @else if(usersStore.loaded()) { @if(usersStore.data().length > 0) {
-  <app-users-table [users]="usersStore.data()"></app-users-table>
-  } @else if (usersStore.error()){
-  <p class="control-error">{{ usersStore.error() }}</p>
-  } @else {
-  <p class="error">No user was found. <br />Please search for a valid user.</p>
-
-  } }
-</div> -->
