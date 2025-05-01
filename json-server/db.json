@@ -932,6 +932,14 @@
       "role": "user",
       "firstName": "David",
       "lastName": "Wilson"
+    },
+    {
+      "id": 1746126657836,
+      "email": "firstuser@gmail.com",
+      "password": "$2b$10$QnEowbIDwuqnz9coFSmQkuqNo2HiV5UcUwngTBlP8DPQBTG7NVdMi",
+      "role": "user",
+      "firstName": "First",
+      "lastName": "User"
     }
   ]
 }
