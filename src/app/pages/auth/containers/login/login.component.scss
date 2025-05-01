@@ -48,10 +48,11 @@
   margin: 2rem 0;
 }
 
-.flex2 {
+.form-flex {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  position: relative;
 }
 
 label {
