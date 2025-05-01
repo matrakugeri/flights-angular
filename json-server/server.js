@@ -4,6 +4,7 @@ const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { first } = require("rxjs");
 
 const SECRET_KEY = "your-secret-key";
 const expiresIn = "1h";
@@ -32,7 +33,7 @@ function getUser(email, password, db) {
 
 // Register endpoint
 server.post("/auth/register", (req, res) => {
-  const { email, password, role = "user" } = req.body;
+  const { email, password, role = "user", firstName, lastName } = req.body;
   console.log(req.body, "//////////////////////////");
   const db = router.db;
 
@@ -41,15 +42,26 @@ server.post("/auth/register", (req, res) => {
   }
 
   const hashedPassword = bcrypt.hashSync(password, 10);
-  const newUser = { id: Date.now(), email, password: hashedPassword, role };
+  const newUser = {
+    id: Date.now(),
+    email,
+    password: hashedPassword,
+    role,
+    firstName,
+    lastName,
+  };
   db.get("users").push(newUser).write();
 
   const token = createToken({ email, id: newUser.id });
-  res.status(201).json({ token, user: { id: newUser.id, email, role } });
+  res.status(201).json({
+    token,
+    user: { id: newUser.id, email, role, firstName, lastName },
+  });
 });
 
 // Login endpoint
 server.post("/auth/login", (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body;
   const db = router.db;
 
@@ -60,9 +72,64 @@ server.post("/auth/login", (req, res) => {
   }
 
   const token = createToken({ email, id: user.id, role: user.role });
-  res
-    .status(200)
-    .json({ token, user: { id: user.id, email, role: user.role } });
+  res.status(200).json({
+    token,
+    user: {
+      id: user.id,
+      email,
+      role: user.role,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    },
+  });
+});
+
+// Users
+server.use((req, res, next) => {
+  if (req.method === "GET" && req.path === "/users") {
+    const { _start, _limit, _sort, _order, firstName, lastName } = req.query;
+    let users = router.db.get("users").value();
+
+    // Remove password field
+    users = users.map(({ password, ...user }) => user);
+
+    // Filtering
+    users = users.filter((user) => {
+      const matchFirstName = firstName
+        ? user.firstName?.toLowerCase().includes(firstName.toLowerCase())
+        : true;
+      const matchLastName = lastName
+        ? user.lastName?.toLowerCase().includes(lastName.toLowerCase())
+        : true;
+
+      return matchFirstName && matchLastName;
+    });
+
+    const totalResults = users.length;
+
+    // Sorting
+    if (_sort && _order) {
+      users = users.sort((a, b) =>
+        _order === "asc"
+          ? a[_sort] > b[_sort]
+            ? 1
+            : -1
+          : a[_sort] < b[_sort]
+          ? 1
+          : -1
+      );
+    }
+
+    // Pagination
+    if (_start && _limit) {
+      users = users.slice(Number(_start), Number(_start) + Number(_limit));
+    }
+
+    res.setHeader("X-Total-Results", totalResults);
+    return res.jsonp({ total: totalResults, data: users });
+  }
+
+  next();
 });
 
 server.use((req, res, next) => {
