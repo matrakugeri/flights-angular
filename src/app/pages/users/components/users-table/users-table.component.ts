@@ -4,6 +4,7 @@ import {
   ViewChild,
   effect,
   input,
+  output,
 } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -13,7 +14,7 @@ import { User } from '../../users-model/users.model';
   selector: 'app-users-table',
   standalone: true,
   imports: [MatTableModule, MatPaginatorModule],
-  template: `<div class="mat-elevation-z8">
+  template: `<div class="mat-elevation-z8 space">
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef class="font-medium">Id</th>
@@ -63,38 +64,27 @@ import { User } from '../../users-model/users.model';
         class="font-medium"
       ></tr>
     </table>
-
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 20]"
-      showFirstLastButtons
-      aria-label="Select page of periodic elements"
-    >
-    </mat-paginator>
   </div> `,
   styles: `
   .font-medium {
   font-size: 1.4rem !important;
 }`,
 })
-export class UsersTableComponent implements AfterViewInit {
+export class UsersTableComponent {
   users = input<User[]>();
+  total = input<number>();
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'role'];
 
   dataSource = new MatTableDataSource<User>();
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor() {
     effect(() => {
       const data = this.users();
       if (data) {
         this.dataSource.data = data;
+        console.log(this.dataSource.data);
       }
     });
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 }

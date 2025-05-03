@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { take, tap } from 'rxjs';
 import { SpinnerComponent } from '../../shared/loading-spinner.component';
 import { AsyncPipe } from '@angular/common';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-users',
@@ -14,6 +15,7 @@ import { AsyncPipe } from '@angular/common';
     UsersTableComponent,
     SpinnerComponent,
     AsyncPipe,
+    MatPaginatorModule,
   ],
   templateUrl: './users.component.html',
   styles: ``,
@@ -32,7 +34,7 @@ export class UsersComponent {
   );
 
   getUsers(params: any) {
-    this.usersStore.load(params);
+    this.usersStore.load({ ...params, start: 0 });
     this.router.navigate(['/users'], {
       queryParams: {
         ...params,
@@ -44,6 +46,21 @@ export class UsersComponent {
     this.usersStore.load(params);
     this.router.navigate(['/users'], {
       queryParams: {},
+    });
+  }
+
+  onPageChange(event: any) {
+    const currentParams = this.usersStore.params();
+    const start = event.pageIndex * event.pageSize;
+    const limit = event.pageSize;
+    this.usersStore.load({ start, limit });
+
+    this.router.navigate(['/users'], {
+      queryParams: {
+        ...currentParams,
+        start,
+        limit,
+      },
     });
   }
 }

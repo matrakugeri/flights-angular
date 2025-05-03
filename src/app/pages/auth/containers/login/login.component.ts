@@ -5,10 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  containsValidChar,
-  containsBigLetter,
-} from '../../../../utils/validators';
+import { containsValidChar } from '../../../../utils/validators';
 import { AuthService } from '../../services/auth.service';
 import { SpinnerComponent } from '../../../../shared/loading-spinner.component';
 import { AuthFormFields } from '../../form-model/formGroup.model';

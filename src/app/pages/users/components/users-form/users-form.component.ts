@@ -29,9 +29,11 @@ export class UsersFormComponent {
   }>();
 
   resettedValues = output<{
+    start: number;
     firstName: string | null;
     lastName: string | null;
   }>();
+
   enteredFirstName = null;
   enteredLastName = null;
 
@@ -50,9 +52,11 @@ export class UsersFormComponent {
   onReset() {
     this.enteredFirstName = null;
     this.enteredLastName = null;
-    this.resettedValues.emit({
-      firstName: this.enteredFirstName,
-      lastName: this.enteredLastName,
-    });
+    const params = {
+      start: 0,
+      firstName: null,
+      lastName: null,
+    };
+    this.resettedValues.emit(params);
   }
 }
