@@ -15,7 +15,12 @@
       <button type="submit" mat-raised-button [disabled]="!isEmptyForm()">
         Search
       </button>
-      <button type="button" class="btn2 btn-reset-2" (click)="onReset()">
+      <button
+        type="button"
+        class="btn2 btn-reset-2"
+        (click)="onReset()"
+        [disabled]="!isEmptyForm()"
+      >
         Reset
       </button>
     </div>
