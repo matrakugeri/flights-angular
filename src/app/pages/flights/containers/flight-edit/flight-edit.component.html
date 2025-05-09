@@ -1,8 +1,0 @@
-@if(isLoading()){
-<loading-spinner />
-}
-<app-flights-form
-  [flightValues]="flightResponse()"
-  (saveChanges)="onEdit($event)"
-  [isEditMode]="true"
-></app-flights-form>
