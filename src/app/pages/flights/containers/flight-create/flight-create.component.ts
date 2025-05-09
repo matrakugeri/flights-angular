@@ -27,7 +27,10 @@ import { Router } from '@angular/router';
     FlightFormComponent,
   ],
   providers: [provideNativeDateAdapter()],
-  templateUrl: './flight-create.component.html',
+  template: `@if(isLoading()){
+    <loading-spinner />
+    }
+    <app-flights-form (saveChanges)="onCreate($event)" />`,
   styles: ``,
 })
 export class FlightCreateComponent {
