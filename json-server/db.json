@@ -126,19 +126,6 @@
       "airline": "Delta Air Lines"
     },
     {
-      "id": 28,
-      "flightNumber": "FL028",
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "departureTime": "2024-12-19T12:00",
-      "arrivalTime": "2024-12-19T18:00",
-      "status": "Cancelled",
-      "title": "Athens to Los Angeles",
-      "airline": "United Airlines"
-    },
-    {
       "id": 29,
       "flightNumber": "FL029",
       "origin": "ORD",
@@ -863,6 +850,22 @@
     }
   ],
   "users": [
+    {
+      "id": 1,
+      "email": "firstadm@example.com",
+      "password": "firstadm!",
+      "role": "admin",
+      "firstName": "First",
+      "lastName": "Admin"
+    },
+    {
+      "id": 2,
+      "email": "firstuser@example.com",
+      "password": "firstuser!",
+      "role": "user",
+      "firstName": "First",
+      "lastName": "User"
+    },
     {
       "id": 1745094940521,
       "email": "admin@example.com",
