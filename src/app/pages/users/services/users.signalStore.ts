@@ -9,7 +9,7 @@ import { UserParams, UsersState } from '../users-model/users.model';
 import { UsersService } from './users.service';
 import { inject } from '@angular/core';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { catchError, delay, EMPTY, pipe, switchMap, tap } from 'rxjs';
+import { catchError, EMPTY, pipe, switchMap, tap } from 'rxjs';
 
 const initialState: UsersState = {
   data: [],
@@ -37,7 +37,7 @@ export const UsersStore = signalStore(
         tap(() => patchState(store, { loading: true })),
         switchMap((params: Partial<UserParams>) => {
           const newParams = { ...getState(store).params, ...params };
-          console.log(newParams, 'Paramasmsmsmsmsmsmsmsmsm');
+          console.log(newParams);
           return usersService.getUsers(newParams).pipe(
             tap({
               next: (response) => {

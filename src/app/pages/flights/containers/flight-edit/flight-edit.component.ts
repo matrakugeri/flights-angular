@@ -11,7 +11,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-flight-edit',
   imports: [FlightFormComponent, SpinnerComponent],
-  templateUrl: './flight-edit.component.html',
+  template: `@if(isLoading()){
+    <loading-spinner />
+    }
+    <app-flights-form
+      [flightValues]="flightResponse()"
+      (saveChanges)="onEdit($event)"
+      [isEditMode]="true"
+    ></app-flights-form> `,
   styles: ``,
 })
 export class FlightEditComponent {
