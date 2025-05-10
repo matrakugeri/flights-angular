@@ -21,7 +21,8 @@ import { Role } from '../../../../../shared/enums';
         style({
           transform: 'translateX(-100px)',
           opacity: 0,
-          display: 'none',
+          visibility: 'hidden',
+          width: '0px',
         })
       ),
       state(
@@ -29,7 +30,8 @@ import { Role } from '../../../../../shared/enums';
         style({
           transform: 'translateX(0px)',
           opacity: 1,
-          display: 'block',
+          visibility: 'visible',
+          width: '*',
         })
       ),
       transition('expanded <=> collapsed', [animate('150ms ease')]),
