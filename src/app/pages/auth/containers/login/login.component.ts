@@ -23,13 +23,16 @@ export class LoginComponent {
   isLoading = signal<boolean>(false);
 
   form = new FormGroup<AuthFormFields>({
-    email: new FormControl('admin@example.com', {
+    email: new FormControl('', {
       validators: [Validators.required, Validators.email],
     }),
-    password: new FormControl('admin2!', {
+    password: new FormControl('', {
       validators: [Validators.required],
     }),
   });
+
+  // admin@example.com
+  // admin2!
 
   onClick() {
     this.isLoginMode.set(!this.isLoginMode());

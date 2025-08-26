@@ -11,8 +11,8 @@
       "status": "Delayed",
       "departureTime": "2024-11-21T17:30",
       "departureDate": "2024-11-21",
-      "arrivalTime": "2024-11-21T23:00",
-      "arrivalDate": "2024-11-21",
+      "arrivalTime": "2024-11-29T22:30",
+      "arrivalDate": "2024-11-28T23:00:00.000Z",
       "id": 1
     },
     {
@@ -31,17 +31,19 @@
       "id": 2
     },
     {
-      "id": 3,
-      "flightNumber": "FL003",
       "origin": "TIA",
       "originFullName": "Tirana",
       "destination": "ATL",
       "destinationFullName": "Atlanta",
-      "departureTime": "2024-11-23T11:00",
-      "arrivalTime": "2024-11-23T17:00",
-      "status": "Cancelled",
       "title": "Tirana to Atlanta",
-      "airline": "Wizz Air"
+      "airline": "Wizz Air",
+      "flightNumber": "FL003",
+      "status": "Cancelled",
+      "departureTime": "2024-11-23T11:00",
+      "departureDate": "2024-11-23",
+      "arrivalTime": "2024-11-25T13:00",
+      "arrivalDate": "2024-11-24T23:00:00.000Z",
+      "id": 3
     },
     {
       "id": 5,
@@ -57,32 +59,19 @@
       "airline": "Scandinavian Airlines"
     },
     {
-      "id": 8,
-      "flightNumber": "FL008",
       "origin": "MXP",
       "originFullName": "Milano",
       "destination": "LAX",
       "destinationFullName": "Los Angeles",
-      "departureTime": "2024-11-28T16:00",
-      "arrivalTime": "2024-11-28T22:00",
-      "status": "Cancelled",
       "title": "Milano to Los Angeles",
-      "airline": "KLM Royal Dutch"
-    },
-    {
-      "origin": "ATH",
-      "originFullName": "Athens",
-      "destination": "LAX",
-      "destinationFullName": "Los Angeles",
-      "title": "Athens to Los Angeles",
-      "airline": "Ryanair",
-      "flightNumber": "FL009",
-      "status": "Scheduled",
-      "departureTime": "2024-11-29T18:00",
-      "departureDate": "2024-11-29",
-      "arrivalTime": "2024-11-29T21:00",
-      "arrivalDate": "2024-11-29",
-      "id": 9
+      "airline": "KLM Royal Dutch",
+      "flightNumber": "FL008",
+      "status": "Delayed",
+      "departureTime": "2024-11-28T16:00",
+      "departureDate": "2024-11-28",
+      "arrivalTime": "2024-11-28T22:00",
+      "arrivalDate": "2024-11-28",
+      "id": 8
     },
     {
       "origin": "ORD",
@@ -847,6 +836,21 @@
       "arrivalTime": "2025-04-30T06:00",
       "arrivalDate": "2025-04-29T22:00:00.000Z",
       "id": 100
+    },
+    {
+      "origin": "ALB",
+      "originFullName": "Tirana",
+      "destination": "GRC",
+      "destinationFullName": "Athens",
+      "title": "Tirana to Athens",
+      "airline": "Ryan Air",
+      "flightNumber": "003WP",
+      "status": "Scheduled",
+      "departureTime": "2025-07-22T01:00",
+      "departureDate": "2025-07-21T22:00:00.000Z",
+      "arrivalTime": "2025-07-22T02:30",
+      "arrivalDate": "2025-07-21T22:00:00.000Z",
+      "id": 101
     }
   ],
   "users": [
@@ -953,6 +957,14 @@
       "role": "user",
       "firstName": "User2",
       "lastName": "Test"
+    },
+    {
+      "id": 1752681510606,
+      "email": "newuserin@gmail.com",
+      "password": "$2b$10$x2yCjmDYtnv3GjXefhCxge3OIvfifVazPv4XaF7sgP2/YumwxiI2y",
+      "role": "user",
+      "firstName": "Accountt",
+      "lastName": "Neww"
     }
   ]
 }

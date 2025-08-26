@@ -1,5 +1,4 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { first } from 'rxjs';
 
 export function containsValidChar(control: AbstractControl) {
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(control.value);
