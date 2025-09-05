@@ -1,4 +1,5 @@
-@import "variables";
+@use "variables" as *;
+@use "sass:color";
 
 *,
 ::after,
@@ -63,7 +64,7 @@ body {
 }
 
 .active {
-  background-color: lighten($sidebar-color, 12);
+  background-color: color.adjust($sidebar-color, $lightness: 12%);
 }
 
 .error {
@@ -106,7 +107,7 @@ body {
   transition: all 0.4s;
 
   &:hover:not(:disabled) {
-    background-color: darken($button-bg, 15);
+    background-color: color.adjust($button-bg, $lightness: -15%);
   }
 }
 
@@ -117,7 +118,7 @@ body {
   transition: all 0.4s;
 
   &:hover:not(:disabled) {
-    background-color: darken($white, 25);
+    background-color: color.adjust($white, $lightness: -25%);
   }
 }
 
@@ -172,7 +173,7 @@ button:not([class*="mat-"]) {
 
   &:hover:not(:disabled) {
     transform: translateY(-3px);
-    background-color: darken(#fff, 10);
+    background-color: color.adjust($white, $lightness: -10%);
   }
 
   &:active:not(:disabled) {
