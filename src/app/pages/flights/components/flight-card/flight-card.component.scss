@@ -1,4 +1,5 @@
-@import "variables";
+@use "variables" as *;
+@use "sass:color";
 
 // ****************** //
 // FLIGHT STYLE
@@ -37,7 +38,7 @@
     background-color: $white;
     backface-visibility: hidden;
     border-radius: 11px 11px 0 0;
-    border: 1px solid darken($rose-border, 5);
+    border: 1px solid color.adjust($rose-border, $lightness: -5%);
     transition: all 0.8s ease;
   }
 
@@ -49,7 +50,7 @@
     border-radius: 11px 11px 0 0;
     box-shadow: 2px 0 0.6rem rgba(70, 62, 62, 0.3);
     backface-visibility: hidden;
-    border: 1px solid darken($rose-border, 5);
+    border: 1px solid color.adjust($rose-border, $lightness: -5%);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -128,7 +129,7 @@
   background-image: linear-gradient(
     to right,
     rgb(156, 184, 55),
-    darken(rgb(156, 184, 55), 10)
+    color.adjust(rgb(156, 184, 55), $lightness: -10%)
   );
   font-weight: 600;
   color: transparent;
@@ -142,7 +143,11 @@
 }
 
 .second-container-big-heading {
-  background-image: linear-gradient(to right, #bba4d4, darken(#bba4d4, 25));
+  background-image: linear-gradient(
+    to right,
+    #bba4d4,
+    color.adjust(#bba4d4, $lightness: -25%)
+  );
   border-bottom: 1px solid #aaa;
   text-transform: uppercase;
   color: transparent;

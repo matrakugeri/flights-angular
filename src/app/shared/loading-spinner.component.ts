@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   styles: [
     `
-      @import 'variables';
+      @use 'variables' as *;
       .spinner-div {
         backdrop-filter: blur(5px);
         background-color: rgba(0, 0, 0, 0.1);

@@ -1,4 +1,5 @@
-@import "variables";
+@use "variables" as *;
+@use "sass:color";
 
 .navigation {
   background-color: $sidebar-color;
@@ -40,5 +41,5 @@
 }
 
 .navigation-list li a:hover:not(.active) {
-  background-color: lighten($color: $sidebar-color, $amount: 5);
+  background-color: color.adjust($sidebar-color, $lightness: 5%);
 }

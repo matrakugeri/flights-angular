@@ -148,7 +148,8 @@ import { Flight } from '../flight-model/flight.model';
   </section>`,
   styles: `
   
-  @import "variables";
+ @use 'variables' as *;
+ @use 'sass:color';
 
   .center {
     display: flex;
@@ -226,18 +227,19 @@ import { Flight } from '../flight-model/flight.model';
   .control-form {
   font-size: 1.5rem;
   margin: 0 1rem 2rem 0;
-  color: lighten(rgb(52, 123, 189), 10);
+  color: color.adjust(rgb(52, 123, 189),$lightness:10%);
 }
 
 .reminder {
   font-size: 1.3rem;
-  color: lighten(rgb(11, 51, 85), 10);
+  color:color.adjust(rgb(11, 51, 85),$lightness:10%);
   margin-top: 2rem;
+
 }
 
   .form-error {
     font-size: 1.7rem;
-    color: lighten(red, 10);
+    color:color.adjust(red,$lightness:10%);
     margin-top: 2rem;
   }
   `,
