@@ -1,59 +1,82 @@
-# FlightsAngular
+# Flights Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+A modern **Flights Management Application** built with **Angular**, **Node.js (Express.js)**, and a **JSON Server** backend.  
+This project provides role-based access for **Admins** and **Users**. Users can view and filter flights. Admins have additional privileges, including creating, editing, and deleting flights (CRUD operations) and managing users, such as viewing the list of registered users in the application.
 
-## Development server
+## Features
 
-To start a local development server, run:
+### Admin Role
 
-```bash
+- Create, edit, and delete flight records.
+- View all registered users in a dynamic **Angular Material Table**.
+- Intuitive and secure admin dashboard interface.
+
+### User Role
+
+- Browse available flights with rich filtering options:
+  - Flight Title
+  - Destination Country
+  - Arrival Country
+  - Airline
+  - Flight Number
+- Responsive pagination for a smooth browsing experience.
+- Clean and user-friendly UI built with **Angular Material**.
+
+## Others
+
+- **Window Communication**: Actions on one window reflect on another window on authentication part.
+
+## Technical Highlights
+
+- **NgRx Signal Store:** Used for managing users for a **reactive**, **fast**, and modern state management experience.
+- **Component Store:** Used for managing flights with **localized component-level** state.
+- **BehaviorSubject / Native Store:** Used for **authentication** state management.
+- **Role-Based Guards:** Implemented **route guards** to restrict access based on Admin or User roles.
+- **Authentication Handling:** Used **HTTP interceptors** to attach Bearer tokens for **secured** API requests.
+- **Reactive Forms & Validation:** Integrated forms with **custom validators** for flights (date validation).
+- **Angular Material UI:** Utilized **tables**, **pagination**, and filtering for a **modern** and **user-friendly** interface.
+
+## Requirements
+
+- Angular CLI (v19.0.1)
+- Node.js (v22 or above)
+- npm (v9 or above)
+- json-server (0.17.0)
+
+## Setup
+
+1. **Clone the repository**:
+
+```
+git clone https://github.com/matrakugeri/flights-angular.git
+cd flights-angular
+```
+
+2. **Install Dependencies**:
+
+```
+npm install
+cd json-server && npm install
+```
+
+## Running the Application
+
+### Angular Development Server
+
+1. **Start Angular Development Server**:
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. Open your browser and navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+### JSON Server
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Start JSON Server**:
 
-```bash
-ng generate component component-name
+```
+cd json-server && npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The JSON Server will be running on `http://localhost:3333`.
