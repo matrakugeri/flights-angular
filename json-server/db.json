@@ -965,6 +965,14 @@
       "role": "user",
       "firstName": "Accountt",
       "lastName": "Neww"
+    },
+    {
+      "id": 1761664414727,
+      "email": "user12@gmail.com",
+      "password": "$2b$10$CSEY3gVu0TqNGsHw2BQQJu6KIeW9/v18gIZwWU4Yh4Ygvg3mWJWWy",
+      "role": "user",
+      "firstName": "User12",
+      "lastName": "User12"
     }
   ]
 }
