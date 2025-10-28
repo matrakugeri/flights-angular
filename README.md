@@ -85,8 +85,8 @@ The JSON Server will be running on `http://localhost:3333`.
 
 ### Signup & Login
 
-  <img src="src/assets/screenshots/sign up.png" alt="Login Page" width="400">
-  <img src="src/assets/screenshots/log in.png" alt="Signup Page" width="400">
+  <img src="src/assets/screenshots/sign up.png" alt="Login Page" width="800">
+  <img src="src/assets/screenshots/log in.png" alt="Signup Page" width="800">
 
 ### User Main View
 
