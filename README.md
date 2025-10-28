@@ -80,3 +80,27 @@ cd json-server && npm start
 ```
 
 The JSON Server will be running on `http://localhost:3333`.
+
+## Screenshots
+
+### Signup & Login
+
+  <img src="src/assets/screenshots/sign up.png" alt="Login Page" width="400">
+  <img src="src/assets/screenshots/log in.png" alt="Signup Page" width="400">
+
+### User Main View
+
+<img src="src/assets/screenshots/users-view.png" alt="User Dashboard" width="800">
+
+### Admin Main View
+
+<img src="src/assets/screenshots/flights.png" alt="Flights List" width="800">
+
+### CRUD OPERATIONS
+
+<img src="src/assets/screenshots/create a flight.png" alt="Flights List" width="800">
+<img src="src/assets/screenshots/delete a flight.png" alt="Flights List" width="800">
+
+### Users Table
+
+<img src="src/assets/screenshots/users.png" alt="Flights List" width="800">
