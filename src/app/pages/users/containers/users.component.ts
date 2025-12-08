@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { UsersFormComponent } from './components/users-form/users-form.component';
-import { UsersTableComponent } from './components/users-table/users-table.component';
-import { UsersStore } from './services/users.signalStore';
+import { UsersFormComponent } from '../components/users-form/users-form.component';
+import { UsersTableComponent } from '../components/users-table/users-table.component';
+import { UsersStore } from '../services/users.signalStore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take, tap } from 'rxjs';
-import { SpinnerComponent } from '../../shared/loading-spinner.component';
+import { SpinnerComponent } from '../../../shared/loading-spinner.component';
 import { AsyncPipe } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
