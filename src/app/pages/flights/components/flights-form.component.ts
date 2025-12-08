@@ -335,23 +335,21 @@ export class FlightFormComponent {
     effect(() => {
       if (this.isEditMode()) {
         console.log(this.flightValues());
-        if (this.isEditMode()) {
-          this.form.patchValue({
-            origin: this.flightValues()?.origin,
-            originFullName: this.flightValues()?.originFullName,
-            destination: this.flightValues()?.destination,
-            destinationFullName: this.flightValues()?.destinationFullName,
-            title: this.flightValues()?.title,
-            airline: this.flightValues()?.airline,
-            status: this.flightValues()?.status,
-            departureDate: this.flightValues()?.departureTime.split('T')[0],
-            departureTime: this.flightValues()?.departureTime + ':00.000',
-            arrivalDate: this.flightValues()?.arrivalTime.split('T')[0],
-            arrivalTime: this.flightValues()?.arrivalTime + ':00.000',
-            flightNumber: this.flightValues()?.flightNumber,
-          });
-          console.log(this.form.value);
-        }
+        this.form.patchValue({
+          origin: this.flightValues()?.origin,
+          originFullName: this.flightValues()?.originFullName,
+          destination: this.flightValues()?.destination,
+          destinationFullName: this.flightValues()?.destinationFullName,
+          title: this.flightValues()?.title,
+          airline: this.flightValues()?.airline,
+          status: this.flightValues()?.status,
+          departureDate: this.flightValues()?.departureTime.split('T')[0],
+          departureTime: this.flightValues()?.departureTime + ':00.000',
+          arrivalDate: this.flightValues()?.arrivalTime.split('T')[0],
+          arrivalTime: this.flightValues()?.arrivalTime + ':00.000',
+          flightNumber: this.flightValues()?.flightNumber,
+        });
+        console.log(this.form.value);
       }
     });
   }
