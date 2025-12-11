@@ -26,3 +26,9 @@ export interface UsersState {
   loaded: boolean;
   params: UserParams;
 }
+
+export interface UserEdit {
+  firstName: string | null;
+  lastName: string | null;
+  email: string | null;
+}

@@ -128,6 +128,12 @@ server.use((req, res, next) => {
     res.setHeader("X-Total-Results", totalResults);
     return res.jsonp({ total: totalResults, data: users });
   }
+  if (req.method === "PUT" && req.path === "/users/:id") {
+    let users = router.db.get("users").value();
+    const id = +req.params.id;
+    const { email, firstName, lastName } = req.body;
+    const user = users.find((el) => el.id === id);
+  }
 
   next();
 });
@@ -206,6 +212,42 @@ server.use((req, res, next) => {
 
     res.setHeader("X-Total-Results", totalResults);
     return res.jsonp({ total: totalResults, data: flights });
+  }
+
+  next();
+});
+
+const filterObj = (obj, ...allowedFields) => {
+  const newObj = {};
+  Object.keys(obj).forEach((key) => {
+    if (allowedFields.includes(key)) {
+      newObj[key] = obj[key];
+    }
+  });
+  return newObj;
+};
+
+server.use((req, res, next) => {
+  const db = router.db;
+
+  if (req.method === "PATCH" && req.path.startsWith("/users/")) {
+    const id = Number(req.path.split("/")[2]);
+
+    const existingUser = db.get("users").find({ id }).value();
+    if (!existingUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const filteredBody = filterObj(req.body, "firstName", "lastName", "email");
+
+    const updatedUser = db
+      .get("users")
+      .find({ id })
+      .assign(filteredBody)
+      .write();
+
+    const { password, ...safeUser } = updatedUser;
+
+    return res.json(safeUser);
   }
 
   next();

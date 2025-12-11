@@ -8,7 +8,11 @@
   ></app-users-form>
 
   @if(usersStore.loaded()) { @if(usersStore.data().length > 0) {
-  <app-users-table [users]="usersStore.data()"></app-users-table>
+  <app-users-table
+    [users]="usersStore.data()"
+    (userDeleted)="onDelete($event)"
+    (userEdited)="onEdit($event)"
+  ></app-users-table>
   <mat-paginator
     [length]="usersStore.total()"
     [pageSize]="usersStore.params().limit"
@@ -25,3 +29,28 @@
 
   } }
 </div>
+@if(isOpen()){
+<section class="edit-dialog">
+  <div class="dialog">
+    <form class="edit-form" [formGroup]="form" (ngSubmit)="onHandleUserEdit()">
+      <div>
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" formControlName="firstName" />
+      </div>
+      <div>
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" formControlName="lastName" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" />
+      </div>
+      <div>
+        <button type="submit">Save</button>
+        <button type="button" (click)="onClose()">Close</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+}
