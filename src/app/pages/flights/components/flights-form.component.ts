@@ -147,7 +147,7 @@ import { Flight } from '../flight-model/flight.model';
     </form>
   </section>`,
   styles: `
-  
+
  @use 'variables' as *;
  @use 'sass:color';
 
@@ -156,7 +156,7 @@ import { Flight } from '../flight-model/flight.model';
     justify-content: center;
     align-items: center;
   }
-  
+
   .primary-form-heading {
     font-size: 2rem;
     text-align: center;
@@ -165,7 +165,7 @@ import { Flight } from '../flight-model/flight.model';
     font-weight: 500;
     color: #6e4343;
   }
-  
+
   .create-flight-form {
     padding: 2.5rem;
     border-radius: 11px;
@@ -173,7 +173,7 @@ import { Flight } from '../flight-model/flight.model';
     width: 800px;
     margin-bottom: 3.2rem;
   }
-  
+
   .create-flight-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -181,7 +181,7 @@ import { Flight } from '../flight-model/flight.model';
     width: 550px;
     justify-self: center;
   }
-  
+
   .datetime-grid-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
@@ -191,11 +191,11 @@ import { Flight } from '../flight-model/flight.model';
     border-radius: 11px;
     padding: 3rem;
   }
-  
+
   .datetime-inner-container {
     width: 250px;
   }
-  
+
   .datetime-heading {
     font-size: 2rem;
     text-align: center;
@@ -203,7 +203,7 @@ import { Flight } from '../flight-model/flight.model';
     font-weight: 500;
     color: #6e4343;
   }
-  
+
   .inner-container-heading {
     margin-bottom: 2rem;
     font-size: 1.7rem;
@@ -216,7 +216,7 @@ import { Flight } from '../flight-model/flight.model';
     background-clip: text;
     text-align: center;
   }
-  
+
   .flex-container {
     display: flex;
     justify-content: flex-end;
@@ -224,11 +224,7 @@ import { Flight } from '../flight-model/flight.model';
     margin: 2.5rem 1rem 1.3rem 0;
     gap: 1rem;
   }
-  .control-form {
-  font-size: 1.5rem;
-  margin: 0 1rem 2rem 0;
-  color: color.adjust(rgb(52, 123, 189),$lightness:10%);
-}
+
 
 .reminder {
   font-size: 1.3rem;
