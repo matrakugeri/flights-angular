@@ -1,18 +1,21 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { catchError, delay, tap, throwError } from 'rxjs';
-import { User, UsersResponse } from '../users-model/users.model';
+import { catchError, delay, Observable, tap, throwError } from 'rxjs';
+import { User, UserEdit, UsersResponse } from '../users-model/users.model';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
   constructor() {}
   http = inject(HttpClient);
 
-  editUser(user: User) {
+  editUser(user: UserEdit): Observable<User> {
     return this.http
-      .patch(`${environment.apiUrl}/users/${user.id}`, user)
-      .pipe(tap((res) => console.log(res)));
+      .patch<User>(`${environment.apiUrl}/users/${user.id}`, user)
+      .pipe(
+        delay(300),
+        tap((res) => console.log(res))
+      );
   }
 
   deleteUser(id: number) {

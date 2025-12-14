@@ -111,11 +111,33 @@ export const UsersStore = signalStore(
           })
         )
       ),
-      editUser: rxMethod<User>(
+      updateUser: rxMethod<UserEdit>(
         pipe(
           tap(() => patchState(store, { loading: true })),
-          switchMap((user: User) => {
-            return usersService.editUser(user);
+          switchMap((newUser: UserEdit) => {
+            return usersService.editUser(newUser).pipe(
+              tap((user) => {
+                patchState(store, (state) => ({
+                  data: state.data.map((el) => (el.id === user.id ? user : el)),
+                  loading: false,
+                }));
+                snackBar.open(
+                  `You have successfully edited the user with the id: ${user.id} `,
+                  'Message',
+                  {
+                    duration: 3000,
+                  }
+                );
+              }),
+              catchError((err) => {
+                patchState(store, {
+                  error: err,
+                  loading: false,
+                  loaded: false,
+                });
+                return EMPTY;
+              })
+            );
           })
         )
       ),

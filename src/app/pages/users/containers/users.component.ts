@@ -53,6 +53,7 @@ import {
     border-radius: 22px;
     padding: 30px;
   }
+
   .edit-form {
     display: grid;
     grid-template-columns:repeat(2, 1fr);
@@ -86,24 +87,28 @@ import {
       opacity: 1;
     }
   }
+
   .dialog__title {
     font-size: 2rem;
     font-weight: 600;
     color: #333030ff;
     margin-bottom: 25px;
   }
+
 .control-error-form{
   position:absolute;
   bottom:-32px;
   font-size:11px;
   color:red;
 }
+
 .control-email{
   position:absolute;
   bottom:-18px;
   font-size:11px;
   color:red;
 }
+
   .btn-save {
     padding: 10px;
     border: none;
@@ -115,6 +120,7 @@ import {
     cursor:pointer;
     text-transform: uppercase;
   }
+  
   .reminder{
     color: color.adjust(rgb(52, 123, 189),$lightness:10%);
     font-size:1.2rem;
@@ -127,6 +133,8 @@ export class UsersComponent {
   route = inject(ActivatedRoute);
   router = inject(Router);
   isOpen = signal<boolean>(false);
+  currentId = signal<number | null>(null);
+
   form = new FormGroup({
     firstName: new FormControl<string | null>(null, {
       validators: [Validators.required, Validators.minLength(3)],
@@ -156,8 +164,9 @@ export class UsersComponent {
 
   onHandleUserEdit() {
     if (this.form.invalid) return;
-    const data = this.form.value;
-    console.log(data);
+    const data = { id: this.currentId(), ...this.form.getRawValue() };
+    this.usersStore.updateUser(data);
+    this.isOpen.set(false);
   }
 
   onEdit(user: User) {
@@ -167,6 +176,7 @@ export class UsersComponent {
       lastName: user.lastName,
       email: user.email,
     });
+    this.currentId.set(user.id);
   }
 
   onClose() {
