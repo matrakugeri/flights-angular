@@ -128,19 +128,6 @@
       "airline": "Southwest Airlines"
     },
     {
-      "id": 30,
-      "flightNumber": "FL030",
-      "origin": "FCO",
-      "originFullName": "Rome",
-      "destination": "ATL",
-      "destinationFullName": "Atlanta",
-      "departureTime": "2024-11-21T14:00",
-      "arrivalTime": "2024-11-21T20:00",
-      "status": "Delayed",
-      "title": "Rome to Atlanta",
-      "airline": "Emirates"
-    },
-    {
       "id": 32,
       "flightNumber": "FL032",
       "origin": "ORD",
@@ -855,52 +842,12 @@
   ],
   "users": [
     {
-      "id": 1,
-      "email": "firstadm@example.com",
-      "password": "firstadm!",
-      "role": "admin",
-      "firstName": "First",
-      "lastName": "Admin"
-    },
-    {
-      "id": 2,
-      "email": "firstuser@example.com",
-      "password": "firstuser!",
-      "role": "user",
-      "firstName": "First",
-      "lastName": "User"
-    },
-    {
       "id": 1745094940521,
       "email": "admin@example.com",
       "password": "$2b$10$kjBwd5S98Hg8Td1C/24CGOGXhdNnaM/5MT.wSEbYFodF.wbT.jYZe",
       "role": "admin",
       "firstName": "admin",
       "lastName": "manager"
-    },
-    {
-      "id": 1745605203981,
-      "email": "newuser@gmail.com",
-      "password": "$2b$10$AYek86zVHzHErDZsIB2Ef.DySi3XyMhLV0NiT3AUjCIKeFW8U/Gh6",
-      "role": "user",
-      "firstName": "newuser",
-      "lastName": "example"
-    },
-    {
-      "id": 1745787842455,
-      "email": "user4@example.com",
-      "password": "$2b$10$E2vfs7cM.n.3Zfq2blhKguDwD0JoSpUwFKcpRKaTgh3h/idk2BAUi",
-      "role": "user",
-      "firstName": "test",
-      "lastName": "user"
-    },
-    {
-      "id": 1745840958593,
-      "email": "test@example.com",
-      "password": "$2b$10$5RmufOVKu/PPkNuWAVXs0.0dzSCVIy.moa29z9KMQ2Vdz5n.ERJp2",
-      "role": "user",
-      "firstName": "Example",
-      "lastName": "Test"
     },
     {
       "id": 1746000000001,
@@ -919,60 +866,52 @@
       "lastName": "Smith"
     },
     {
-      "id": 1746000000003,
-      "email": "michael.brown@example.com",
-      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "id": 1765304168584,
+      "email": "davmoyes@gmail.com",
+      "password": "$2b$10$cmlXpmOeNMXLRRvhp/Rile2dPMRC5TB55HF2nYJYjuzK5QL6iZeFu",
       "role": "user",
-      "firstName": "Michael",
-      "lastName": "Brown"
+      "firstName": "david",
+      "lastName": "moyes"
     },
     {
-      "id": 1746000000004,
-      "email": "emily.johnson@example.com",
-      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "id": 1765304227198,
+      "email": "chrisg@gmail.com",
+      "password": "$2b$10$fOyUzLqj4a0aU.wdnKgdgeBJYm59bhBRqYuWNWpo048oqgEEUtTnq",
       "role": "user",
-      "firstName": "Emily",
-      "lastName": "Johnson"
+      "firstName": "chris",
+      "lastName": "gadi"
     },
     {
-      "id": 1746000000005,
-      "email": "david.wilson@example.com",
-      "password": "$2b$10$abcdefghijklmnopqrstuv",
+      "id": 1765304277347,
+      "email": "tponi@gmail.com",
+      "password": "$2b$10$oInVLH4Gtj6ljQ.lGo7IC.noFAD5Q6kMuEt.j6ShSNKw0GeMnKh7y",
       "role": "user",
-      "firstName": "David",
-      "lastName": "Wilson"
+      "firstName": "advertas",
+      "lastName": "poni"
     },
     {
-      "id": 1746126657836,
-      "email": "firstuser@gmail.com",
-      "password": "$2b$10$QnEowbIDwuqnz9coFSmQkuqNo2HiV5UcUwngTBlP8DPQBTG7NVdMi",
+      "id": 1765304303572,
+      "email": "trmori@gmail.com",
+      "password": "$2b$10$dLFEzc7MKkJ08GpUs3tiQOIadBXDr.I9lnDf/o.jy8TCkD3E4Opke",
       "role": "user",
-      "firstName": "First",
-      "lastName": "User"
+      "firstName": "Toron",
+      "lastName": "Morits"
     },
     {
-      "id": 1746134307982,
-      "email": "user2@gmail.com",
-      "password": "$2b$10$jsVq4oNmd19HFUo6zFGOdOlpAvMLIJU0iNVvBL1Mcb.6b2hdEYIxa",
+      "id": 1765304361146,
+      "email": "tmilano@gmail.com",
+      "password": "$2b$10$As4jsT4hpRnsrabGK/U4gO5fB8uYlUGDtIyXVbCwXclMq1lSoEkAC",
       "role": "user",
-      "firstName": "User2",
-      "lastName": "Test"
+      "firstName": "Toronto",
+      "lastName": "Milano"
     },
     {
-      "id": 1752681510606,
-      "email": "newuserin@gmail.com",
-      "password": "$2b$10$x2yCjmDYtnv3GjXefhCxge3OIvfifVazPv4XaF7sgP2/YumwxiI2y",
+      "id": 1765304401856,
+      "email": "ozge@gmail.com",
+      "password": "$2b$10$w4XBDvLlrGJr1trNNa7ot.G6g6rcpXn4XIAIlKmB8K/PjhI0H1HLu",
       "role": "user",
-      "firstName": "Accountt",
-      "lastName": "Neww"
-    },
-    {
-      "id": 1761664414727,
-      "email": "user12@gmail.com",
-      "password": "$2b$10$CSEY3gVu0TqNGsHw2BQQJu6KIeW9/v18gIZwWU4Yh4Ygvg3mWJWWy",
-      "role": "user",
-      "firstName": "User12",
-      "lastName": "User12"
+      "firstName": "Ozge",
+      "lastName": "Torer"
     }
   ]
 }

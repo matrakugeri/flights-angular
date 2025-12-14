@@ -8,7 +8,11 @@
   ></app-users-form>
 
   @if(usersStore.loaded()) { @if(usersStore.data().length > 0) {
-  <app-users-table [users]="usersStore.data()"></app-users-table>
+  <app-users-table
+    [users]="usersStore.data()"
+    (userDeleted)="onDelete($event)"
+    (userEdited)="onEdit($event)"
+  ></app-users-table>
   <mat-paginator
     [length]="usersStore.total()"
     [pageSize]="usersStore.params().limit"
@@ -25,3 +29,49 @@
 
   } }
 </div>
+@if(isOpen()){
+<section class="edit-dialog" (click)="onClose()">
+  <div class="dialog" (click)="$event.stopPropagation()">
+    <h2 class="dialog__title">Edit User</h2>
+    <form class="edit-form" [formGroup]="form" (ngSubmit)="onHandleUserEdit()">
+      <div>
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" formControlName="firstName" />
+        @if(form.get('firstName')?.touched && form.get('firstName')?.invalid &&
+        form.controls.firstName.hasError('minlength') ||
+        form.controls.firstName.hasError('required') ){
+        <p class="control-error-form">
+          First Name is required must be atleast 3 chars
+        </p>
+        }
+      </div>
+      <div>
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" formControlName="lastName" />
+        @if(form.get('lastName')?.touched && form.get('lastName')?.invalid &&
+        form.controls.lastName.hasError('minlength') ||
+        form.controls.lastName.hasError('required') ){
+        <p class="control-error-form">
+          Last Name is required must be atleast 3 chars
+        </p>
+        }
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" />
+        @if(form.get('email')?.touched && form.get('email')?.invalid &&
+        form.controls.email.hasError('email') ||
+        form.controls.email.hasError('required') ){
+        <p class="control-email">Please provide a valid email</p>
+        }
+      </div>
+      <div>
+        <button type="submit" class="btn-save" [disabled]="form.invalid">
+          Save
+        </button>
+      </div>
+    </form>
+    <p class="reminder">Click outside the form to close it</p>
+  </div>
+</section>
+}

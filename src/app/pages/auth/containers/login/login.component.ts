@@ -41,13 +41,13 @@ export class LoginComponent {
       this.form.addControl(
         'firstName',
         new FormControl('', {
-          validators: [Validators.required, Validators.minLength(4)],
+          validators: [Validators.required, Validators.minLength(3)],
         })
       );
       this.form.addControl(
         'lastName',
         new FormControl('', {
-          validators: [Validators.required, Validators.minLength(4)],
+          validators: [Validators.required, Validators.minLength(3)],
         })
       );
       this.form

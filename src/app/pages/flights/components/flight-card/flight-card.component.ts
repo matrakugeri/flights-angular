@@ -27,6 +27,7 @@ export class FlightCardComponent {
   openDeleteDialog(): void {
     this.dialog
       .open(DeleteDialogComponent, {
+        data: { name: 'flight' },
         width: '300px',
         enterAnimationDuration: '200ms',
         exitAnimationDuration: '100ms',

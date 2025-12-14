@@ -185,3 +185,14 @@ button:not([class*="mat-"]) {
 .space {
   margin-bottom: 4rem;
 }
+
+i {
+  cursor: pointer !important;
+}
+
+.control-form {
+  font-size: 1.5rem;
+  margin: 0 1rem 2rem 0;
+  color: color.adjust(rgb(52, 123, 189),$lightness:10%);
+}
+

@@ -3,12 +3,15 @@ import {
   Component,
   ViewChild,
   effect,
+  inject,
   input,
   output,
 } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { User } from '../../users-model/users.model';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../../../flights/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-users-table',
@@ -53,6 +56,18 @@ import { User } from '../../users-model/users.model';
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="font-medium">Actions</th>
+        <td mat-cell *matCellDef="let element" class="font-medium">
+          <div class="actions">
+            <i (click)="onDelete(element.id)" class="material-icons"
+              >delete_outline</i
+            >
+            <i (click)="onEdit(element)" class="material-icons">edit_note</i>
+          </div>
+        </td>
+      </ng-container>
+
       <tr
         mat-header-row
         *matHeaderRowDef="displayedColumns"
@@ -66,6 +81,10 @@ import { User } from '../../users-model/users.model';
     </table>
   </div> `,
   styles: `
+  .actions{
+    display:flex;
+    gap:3px;
+  }
   .font-medium {
   font-size: 1.4rem !important;
 }`,
@@ -73,10 +92,40 @@ import { User } from '../../users-model/users.model';
 export class UsersTableComponent {
   users = input<User[]>();
   total = input<number>();
+  userDeleted = output<number>();
+  userEdited = output<User>();
+  readonly dialog = inject(MatDialog);
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'role'];
+  displayedColumns: string[] = [
+    'id',
+    'firstName',
+    'lastName',
+    'email',
+    'role',
+    'actions',
+  ];
 
   dataSource = new MatTableDataSource<User>();
+
+  onDelete(id: number): void {
+    this.dialog
+      .open(DeleteDialogComponent, {
+        data: { name: 'user' },
+        width: '300px',
+        enterAnimationDuration: '200ms',
+        exitAnimationDuration: '100ms',
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result === 'confirm') {
+          this.userDeleted.emit(id);
+        }
+      });
+  }
+
+  onEdit(user: User): void {
+    this.userEdited.emit(user);
+  }
 
   constructor() {
     effect(() => {
