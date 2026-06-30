@@ -254,6 +254,6 @@ server.use((req, res, next) => {
 });
 
 server.use(router);
-server.listen(3333, () => {
+server.listen(process.env.PORT || 3333, () => {
   console.log("JSON Server is running at http://localhost:3333");
 });
