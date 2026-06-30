@@ -4,7 +4,7 @@ const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { first } = require("rxjs");
+
 
 const SECRET_KEY = "your-secret-key";
 const expiresIn = "1h";
