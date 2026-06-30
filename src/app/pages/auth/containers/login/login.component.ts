@@ -23,10 +23,10 @@ export class LoginComponent {
   isLoading = signal<boolean>(false);
 
   form = new FormGroup<AuthFormFields>({
-    email: new FormControl('', {
+    email: new FormControl('admin@example.com', {
       validators: [Validators.required, Validators.email],
     }),
-    password: new FormControl('', {
+    password: new FormControl('admin2!', {
       validators: [Validators.required],
     }),
   });
