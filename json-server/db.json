@@ -912,6 +912,22 @@
       "role": "user",
       "firstName": "Ozge",
       "lastName": "Torer"
+    },
+    {
+      "id": 1782844638781,
+      "email": "www@gmail.com",
+      "password": "$2b$10$7nqLjsQxhkxRxMBbRmRBCe.WS9UfgOwsYa9bTZii/JR.epY/4KdxO",
+      "role": "user",
+      "firstName": "ddd",
+      "lastName": "ddddd"
+    },
+    {
+      "id": 1782844662287,
+      "email": "d@gmail.com",
+      "password": "$2b$10$3fzJfFwq0I7SYjXP9UTY0eyijD/fe.KtLMsm4BB/3Ma428f2B6p4m",
+      "role": "user",
+      "firstName": "wdw",
+      "lastName": "ddd"
     }
   ]
 }
